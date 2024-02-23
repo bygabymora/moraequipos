@@ -66,7 +66,7 @@ const VideoContainer = () => {
   }, []);
 
   return (
-    <RootLayout title="Propuesta Comercial 2024">
+    <RootLayout title="moraequipos">
       <main className="flex flex-col items-center justify-center h-auto md:h-[75vh] lg:h-[80vh] mt-2 md:mt-5">
         <div className="flex justify-center items-center w-full leading-tight sticky top-0 sm:hidden">
           <Image

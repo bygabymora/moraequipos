@@ -7,7 +7,7 @@ import Boton from '../../public/images/boton.png';
 
 export default function usuariosAnnar() {
   return (
-    <RootLayout title="Propuesta Comercial 2024">
+    <RootLayout title="moraequipos">
       <main className="bg-gray-50 pt-2">
         <div className="justify-center items-center w-full pt-2 pb-2 leading-tight">
           <VideoContainer />
