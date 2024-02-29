@@ -320,10 +320,10 @@ const Formulario = () => {
 
     emailjs
       .sendForm(
-        'service_grtjjzp',
-        'template_nqt1u2d',
+        'service_grtjjzp5',
+        'template_nqt1u2d5',
         form.current,
-        'LuJZSocJe5a_St7dQ'
+        'LuJZSocJe5a_St7dQ5'
       )
       .then(
         (result) => {
@@ -397,7 +397,7 @@ const Formulario = () => {
                 type="text"
                 name="user_name"
                 className="contact__form-input"
-                onChange={(e) => setName(e.target.value || '')}
+                onChange={(e) => setNombre(e.target.value || '')}
                 value={nombre || ''}
                 required
               />
@@ -2037,6 +2037,56 @@ const Formulario = () => {
                 value={opcionNegociaciónQuedarse}
               />
             </div>
+            <div className="col-span-6 text-left border border-gray-200 p-2">
+              <p className="my-2 py-2 text-lg">
+                <span className="font-semibold">4. </span>
+                Por favor comentemos su medio de contacto preferido.
+              </p>
+              <div className="flex justify-start items-center space-x-4 mt-4">
+                <div className="flex items-center">
+                  <input
+                    type="radio"
+                    id="user_contact_method_email"
+                    name="user_contact_method"
+                    className="contact__form-radio-input"
+                    onChange={() => setMedioDeContacto('Email')}
+                    checked={medioDeContacto === 'Email'}
+                  />
+                  <label htmlFor="user_contact_method_email" className="ml-2">
+                    Email
+                  </label>
+                </div>
+                <div className="flex items-center">
+                  <input
+                    type="radio"
+                    id="user_contact_method_whatsapp"
+                    name="user_contact_method"
+                    className="contact__form-radio-input"
+                    onChange={() => setMedioDeContacto('WhatsApp')}
+                    checked={medioDeContacto === 'WhatsApp'}
+                  />
+                  <label
+                    htmlFor="user_contact_method_whatsapp"
+                    className="ml-2"
+                  >
+                    WhatsApp
+                  </label>
+                </div>
+                <div className="flex items-center">
+                  <input
+                    type="radio"
+                    id="user_contact_method_call"
+                    name="user_contact_method"
+                    className="contact__form-radio-input"
+                    onChange={() => setMedioDeContacto('Llamada')}
+                    checked={medioDeContacto === 'Llamada'}
+                  />
+                  <label htmlFor="user_contact_method_call" className="ml-2">
+                    Llamada
+                  </label>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div className="my-3">
@@ -2055,7 +2105,7 @@ const Formulario = () => {
             </span>{' '}
             (eventualmente la misma unidad que tiene actualmente).
             <br />
-            <br /> El video puede ser enviado vía WhatsApp al{' '}
+            <br /> El video puede ser enviado vía WhatsApp al <br />
             <span className="font-bold">320 219 3192</span> o por correo
             electrónico a{' '}
             <span className="font-bold">infocomercial@moraequipos.com. </span>{' '}
@@ -2063,7 +2113,7 @@ const Formulario = () => {
             <br />
             Tenga en cuenta que esta segunda rifa, se va a realizar entre pocos
             laboratorios y su laboratorio tendrá más opciones de ganar.
-            ¡Anímese! Al llenar la encuesta y enviar el video,{' '}
+            ¡Anímese! Al llenar la encuesta y enviar el video, <br />
             <span className="font-bold">tiene dos oportunidades de ganar.</span>
           </p>
         </div>
