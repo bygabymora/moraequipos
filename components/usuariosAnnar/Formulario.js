@@ -56,6 +56,7 @@ const Formulario = () => {
   const [siReemplazableQue, setSiReemplazableQue] = useState('');
   const [conociaMoraequipos, setConociaMoraequipos] = useState('');
   const [moraequiposEsSerio, setMoraequiposEsSerio] = useState('');
+  const [moraequiposDaConfianza, setMoraequiposDaConfianza] = useState('');
   const [morequiposCumpleComoProveedor, setMorequiposCumpleComoProveedor] =
     useState('');
   const [sabiaEquiposEnTodoColombia, setSabiaEquiposEnTodoColombia] =
@@ -129,6 +130,7 @@ const Formulario = () => {
         siReemplazableQue,
         conociaMoraequipos,
         moraequiposEsSerio,
+        moraequiposDaConfianza,
         morequiposCumpleComoProveedor,
         sabiaEquiposEnTodoColombia,
         tiempoRespuestaMq,
@@ -199,6 +201,7 @@ const Formulario = () => {
       setConociaMoraequipos('');
       setMoraequiposEsSerio('');
       setMorequiposCumpleComoProveedor('');
+      setMoraequiposDaConfianza('');
       setSabiaEquiposEnTodoColombia('');
       setTiempoRespuestaMq('');
       setEquipoDisponibleMq('');
@@ -282,6 +285,10 @@ const Formulario = () => {
     formData.append('user_wp_replacement_what', siReemplazableQue);
     formData.append('user_knew_moraequipos', conociaMoraequipos);
     formData.append('user_moraequipos_is_serious', moraequiposEsSerio);
+    formData.append(
+      'user_moraequipos_gives_confidence',
+      moraequiposDaConfianza
+    );
     formData.append(
       'user_moraequipos_fulfills_as_provider',
       morequiposCumpleComoProveedor
@@ -1346,145 +1353,165 @@ const Formulario = () => {
                 requerimiento a través del WhatsApp?
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2">
-                <div className="flex justify-start items-center space-x-4 mt-4">
+                <div className="flex justify-between items-center space-x-4 mt-4">
                   <label htmlFor="user_agree_with_video" className="ml-2">
                     <span className="font-semibold">a. </span>Solicitud de envío
                     de un video para poder contextualizar la situación
                   </label>
-                  <div className="flex items-center">
-                    <input
-                      type="radio"
-                      id="user_agree_with_video_yes"
-                      name="user_agree_with_video"
-                      className="contact__form-radio-input"
-                      onChange={() => setDeAcuerdoConVideo(true)}
-                      checked={deAcuerdoConVideo === true}
-                    />
-                    <label htmlFor="user_agree_with_video_yes" className="ml-2">
-                      Sí
-                    </label>
-                  </div>
-                  <div className="flex items-center">
-                    <input
-                      type="radio"
-                      id="user_agree_with_video_no"
-                      name="user_agree_with_video"
-                      className="contact__form-radio-input"
-                      onChange={() => setDeAcuerdoConVideo(false)}
-                      checked={deAcuerdoConVideo === false}
-                    />
-                    <label htmlFor="user_agree_with_video_no" className="ml-2">
-                      No
-                    </label>
+                  <div className="flex items-center gap-2">
+                    <div className="flex items-center">
+                      <input
+                        type="radio"
+                        id="user_agree_with_video_yes"
+                        name="user_agree_with_video"
+                        className="contact__form-radio-input"
+                        onChange={() => setDeAcuerdoConVideo(true)}
+                        checked={deAcuerdoConVideo === true}
+                      />
+                      <label
+                        htmlFor="user_agree_with_video_yes"
+                        className="ml-2"
+                      >
+                        Sí
+                      </label>
+                    </div>
+                    <div className="flex items-center">
+                      <input
+                        type="radio"
+                        id="user_agree_with_video_no"
+                        name="user_agree_with_video"
+                        className="contact__form-radio-input"
+                        onChange={() => setDeAcuerdoConVideo(false)}
+                        checked={deAcuerdoConVideo === false}
+                      />
+                      <label
+                        htmlFor="user_agree_with_video_no"
+                        className="ml-2"
+                      >
+                        No
+                      </label>
+                    </div>
                   </div>
                 </div>
-                <div className="flex justify-start items-center space-x-4 mt-4">
+                <div className="flex justify-between items-center space-x-4 mt-4">
                   <label htmlFor="user_agree_with_photo" className="ml-2">
                     <span className="font-semibold">b. </span>Solicitud de envío
                     de fotos para poder contextualizar la solución posible
                   </label>
-                  <div className="flex items-center">
-                    <input
-                      type="radio"
-                      id="user_agree_with_photo_yes"
-                      name="user_agree_with_photo"
-                      className="contact__form-radio-input"
-                      onChange={() => setDeAcuerdoConFotos(true)}
-                      checked={deAcuerdoConFotos === true}
-                    />
-                    <label htmlFor="user_agree_with_photo_yes" className="ml-2">
-                      Sí
-                    </label>
-                  </div>
-                  <div className="flex items-center">
-                    <input
-                      type="radio"
-                      id="user_agree_with_photo_no"
-                      name="user_agree_with_photo"
-                      className="contact__form-radio-input"
-                      onChange={() => setDeAcuerdoConFotos(false)}
-                      checked={deAcuerdoConFotos === false}
-                    />
-                    <label htmlFor="user_agree_with_photo_no" className="ml-2">
-                      No
-                    </label>
+                  <div className="flex items-center gap-2">
+                    <div className="flex items-center">
+                      <input
+                        type="radio"
+                        id="user_agree_with_photo_yes"
+                        name="user_agree_with_photo"
+                        className="contact__form-radio-input"
+                        onChange={() => setDeAcuerdoConFotos(true)}
+                        checked={deAcuerdoConFotos === true}
+                      />
+                      <label
+                        htmlFor="user_agree_with_photo_yes"
+                        className="ml-2"
+                      >
+                        Sí
+                      </label>
+                    </div>
+                    <div className="flex items-center">
+                      <input
+                        type="radio"
+                        id="user_agree_with_photo_no"
+                        name="user_agree_with_photo"
+                        className="contact__form-radio-input"
+                        onChange={() => setDeAcuerdoConFotos(false)}
+                        checked={deAcuerdoConFotos === false}
+                      />
+                      <label
+                        htmlFor="user_agree_with_photo_no"
+                        className="ml-2"
+                      >
+                        No
+                      </label>
+                    </div>
                   </div>
                 </div>
-                <div className="flex justify-start items-center space-x-4 mt-4">
+                <div className="flex justify-between items-center space-x-4 mt-4">
                   <label htmlFor="user_agree_with_support" className="ml-2">
                     <span className="font-semibold">c. </span>Solicitud de su
                     apoyo para resolver la situación (por ejemplo reemplazo de
                     filtros previos)
                   </label>
-                  <div className="flex items-center">
-                    <input
-                      type="radio"
-                      id="user_agree_with_support_yes"
-                      name="user_agree_with_support"
-                      className="contact__form-radio-input"
-                      onChange={() => setDeAcuerdoConBrindarApoyo(true)}
-                      checked={deAcuerdoConBrindarApoyo === true}
-                    />
-                    <label
-                      htmlFor="user_agree_with_support_yes"
-                      className="ml-2"
-                    >
-                      Sí
-                    </label>
-                  </div>
-                  <div className="flex items-center">
-                    <input
-                      type="radio"
-                      id="user_agree_with_support_no"
-                      name="user_agree_with_support"
-                      className="contact__form-radio-input"
-                      onChange={() => setDeAcuerdoConBrindarApoyo(false)}
-                      checked={deAcuerdoConBrindarApoyo === false}
-                    />
-                    <label
-                      htmlFor="user_agree_with_support_no"
-                      className="ml-2"
-                    >
-                      No
-                    </label>
+                  <div className="flex items-center gap-2">
+                    <div className="flex items-center">
+                      <input
+                        type="radio"
+                        id="user_agree_with_support_yes"
+                        name="user_agree_with_support"
+                        className="contact__form-radio-input"
+                        onChange={() => setDeAcuerdoConBrindarApoyo(true)}
+                        checked={deAcuerdoConBrindarApoyo === true}
+                      />
+                      <label
+                        htmlFor="user_agree_with_support_yes"
+                        className="ml-2"
+                      >
+                        Sí
+                      </label>
+                    </div>
+                    <div className="flex items-center">
+                      <input
+                        type="radio"
+                        id="user_agree_with_support_no"
+                        name="user_agree_with_support"
+                        className="contact__form-radio-input"
+                        onChange={() => setDeAcuerdoConBrindarApoyo(false)}
+                        checked={deAcuerdoConBrindarApoyo === false}
+                      />
+                      <label
+                        htmlFor="user_agree_with_support_no"
+                        className="ml-2"
+                      >
+                        No
+                      </label>
+                    </div>
                   </div>
                 </div>
-                <div className="flex justify-start items-center space-x-4 mt-4">
+                <div className="flex justify-between items-center space-x-4 mt-4">
                   <label htmlFor="user_agree_with_monitoring" className="ml-2">
                     <span className="font-semibold">d. </span>Monitoreo por
                     video llamada para resolver la situación
                   </label>
-                  <div className="flex items-center">
-                    <input
-                      type="radio"
-                      id="user_agree_with_monitoring_yes"
-                      name="user_agree_with_monitoring"
-                      className="contact__form-radio-input"
-                      onChange={() => setDeAcuerdoConMonitoreo(true)}
-                      checked={deAcuerdoConMonitoreo === true}
-                    />
-                    <label
-                      htmlFor="user_agree_with_monitoring_yes"
-                      className="ml-2"
-                    >
-                      Sí
-                    </label>
-                  </div>
-                  <div className="flex items-center">
-                    <input
-                      type="radio"
-                      id="user_agree_with_monitoring_no"
-                      name="user_agree_with_monitoring"
-                      className="contact__form-radio-input"
-                      onChange={() => setDeAcuerdoConMonitoreo(false)}
-                      checked={deAcuerdoConMonitoreo === false}
-                    />
-                    <label
-                      htmlFor="user_agree_with_monitoring_no"
-                      className="ml-2"
-                    >
-                      No
-                    </label>
+                  <div className="flex items-center gap-2">
+                    <div className="flex items-center">
+                      <input
+                        type="radio"
+                        id="user_agree_with_monitoring_yes"
+                        name="user_agree_with_monitoring"
+                        className="contact__form-radio-input"
+                        onChange={() => setDeAcuerdoConMonitoreo(true)}
+                        checked={deAcuerdoConMonitoreo === true}
+                      />
+                      <label
+                        htmlFor="user_agree_with_monitoring_yes"
+                        className="ml-2"
+                      >
+                        Sí
+                      </label>
+                    </div>
+                    <div className="flex items-center">
+                      <input
+                        type="radio"
+                        id="user_agree_with_monitoring_no"
+                        name="user_agree_with_monitoring"
+                        className="contact__form-radio-input"
+                        onChange={() => setDeAcuerdoConMonitoreo(false)}
+                        checked={deAcuerdoConMonitoreo === false}
+                      />
+                      <label
+                        htmlFor="user_agree_with_monitoring_no"
+                        className="ml-2"
+                      >
+                        No
+                      </label>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1570,6 +1597,475 @@ const Formulario = () => {
               />
             </div>
           </div>
+        </div>
+        <div className="">
+          <h3 className="contact__title mt-2">
+            3. Sobre Moraequipos como empresa proveedora
+          </h3>
+          <div className="w-full px-3 pt-3 grid grid-cols-1 md:grid-cols-6 pb-2 leading-tight border rounded shadow ">
+            <div className="col-span-6 text-left">
+              <p className="my-2 py-2 text-lg">
+                Aquí nos referimos al servicio que Usted o su laboratorio ha
+                recibido directamente de la empresa Moraequipos y el
+                conocimiento y concepto que tiene de nosotros.
+              </p>
+            </div>
+            <div className="col-span-6 text-left border border-gray-200 p-2">
+              <p className="col-span-2 text-center font-semibold mb-2">
+                Porfavor responda a cada concepto
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-2">
+                <div className="flex justify-between items-center space-x-4 mt-2">
+                  <label htmlFor="user_knew_moraequipos" className="ml-2">
+                    <span className="font-semibold">a. </span>
+                    ¿Conocía Ud. a Moraequipos desde antes de tener esta unidad
+                    de Agua?
+                  </label>
+                  <div className="flex items-center gap-2">
+                    <div className="flex items-center">
+                      <input
+                        type="radio"
+                        id="user_knew_moraequipos_yes"
+                        name="user_knew_moraequipos"
+                        className="contact__form-radio-input"
+                        onChange={() => setConociaMoraequipos(true)}
+                        checked={conociaMoraequipos === true}
+                      />
+                      <label
+                        htmlFor="user_knew_moraequipos_yes"
+                        className="ml-2"
+                      >
+                        Sí
+                      </label>
+                    </div>
+                    <div className="flex items-center">
+                      <input
+                        type="radio"
+                        id="user_knew_moraequipos_no"
+                        name="user_knew_moraequipos"
+                        className="contact__form-radio-input"
+                        onChange={() => setConociaMoraequipos(false)}
+                        checked={conociaMoraequipos === false}
+                      />
+                      <label
+                        htmlFor="user_knew_moraequipos_no"
+                        className="ml-2"
+                      >
+                        No
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div className="flex justify-between items-center space-x-4 mt-2">
+                  <label htmlFor="user_moraequipos_is_serious" className="ml-2">
+                    <span className="font-semibold">b. </span>
+                    ¿Considera Usted a Moraequipos como una empresa seria?
+                  </label>
+                  <div className="flex items-center gap-2">
+                    <div className="flex items-center">
+                      <input
+                        type="radio"
+                        id="user_moraequipos_is_serious_yes"
+                        name="user_moraequipos_is_serious"
+                        className="contact__form-radio-input"
+                        onChange={() => setMoraequiposEsSerio(true)}
+                        checked={moraequiposEsSerio === true}
+                      />
+                      <label
+                        htmlFor="user_moraequipos_is_serious_yes"
+                        className="ml-2"
+                      >
+                        Sí
+                      </label>
+                    </div>
+                    <div className="flex items-center">
+                      <input
+                        type="radio"
+                        id="user_moraequipos_is_serious_no"
+                        name="user_moraequipos_is_serious"
+                        className="contact__form-radio-input"
+                        onChange={() => setMoraequiposEsSerio(false)}
+                        checked={moraequiposEsSerio === false}
+                      />
+                      <label
+                        htmlFor="user_moraequipos_is_serious_no"
+                        className="ml-2"
+                      >
+                        No
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div className="flex justify-between items-center space-x-4 mt-2">
+                  <label
+                    htmlFor="user_moraequipos_gives_confidence"
+                    className="ml-2"
+                  >
+                    <span className="font-semibold">c. </span>
+                    ¿Es Moraequipos una empresa digna de su confianza?
+                  </label>
+                  <div className="flex items-center gap-2">
+                    <div className="flex items-center">
+                      <input
+                        type="radio"
+                        id="user_moraequipos_gives_confidence_yes"
+                        name="user_moraequipos_gives_confidence"
+                        className="contact__form-radio-input"
+                        onChange={() => setMoraequiposDaConfianza(true)}
+                        checked={moraequiposDaConfianza === true}
+                      />
+                      <label
+                        htmlFor="user_moraequipos_gives_confidence_yes"
+                        className="ml-2"
+                      >
+                        Sí
+                      </label>
+                    </div>
+                    <div className="flex items-center">
+                      <input
+                        type="radio"
+                        id="user_moraequipos_gives_confidence_no"
+                        name="user_moraequipos_gives_confidence"
+                        className="contact__form-radio-input"
+                        onChange={() => setMoraequiposDaConfianza(false)}
+                        checked={moraequiposDaConfianza === false}
+                      />
+                      <label
+                        htmlFor="user_moraequipos_gives_confidence_no"
+                        className="ml-2"
+                      >
+                        No
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div className="flex justify-between items-center space-x-4 mt-2">
+                  <label
+                    htmlFor="user_moraequipos_fulfills_as_provider"
+                    className="ml-2"
+                  >
+                    <span className="font-semibold">d. </span>
+                    ¿Moraequipos como proveedor, ha respondido a sus
+                    expectativas?
+                  </label>
+                  <div className="flex items-center gap-2">
+                    <div className="flex items-center">
+                      <input
+                        type="radio"
+                        id="user_moraequipos_fulfills_as_provider_yes"
+                        name="user_moraequipos_fulfills_as_provider"
+                        className="contact__form-radio-input"
+                        onChange={() => setMorequiposCumpleComoProveedor(true)}
+                        checked={morequiposCumpleComoProveedor === true}
+                      />
+                      <label
+                        htmlFor="user_moraequipos_fulfills_as_provider_yes"
+                        className="ml-2"
+                      >
+                        Sí
+                      </label>
+                    </div>
+                    <div className="flex items-center">
+                      <input
+                        type="radio"
+                        id="user_moraequipos_fulfills_as_provider_no"
+                        name="user_moraequipos_fulfills_as_provider"
+                        className="contact__form-radio-input"
+                        onChange={() => setMorequiposCumpleComoProveedor(false)}
+                        checked={morequiposCumpleComoProveedor === false}
+                      />
+                      <label
+                        htmlFor="user_moraequipos_fulfills_as_provider_no"
+                        className="ml-2"
+                      >
+                        No
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div className="flex justify-between items-center space-x-4 mt-2">
+                  <label
+                    htmlFor="user_knew_moraequipos_in_colombia"
+                    className="ml-2"
+                  >
+                    <span className="font-semibold">e. </span>
+                    ¿Sabía Usted que Moraequipos tiene equipos en todo el
+                    territorio Colombiano?
+                  </label>
+                  <div className="flex items-center gap-2">
+                    <div className="flex items-center">
+                      <input
+                        type="radio"
+                        id="user_knew_moraequipos_in_colombia_yes"
+                        name="user_knew_moraequipos_in_colombia"
+                        className="contact__form-radio-input"
+                        onChange={() => setSabiaEquiposEnTodoColombia(true)}
+                        checked={sabiaEquiposEnTodoColombia === true}
+                      />
+                      <label
+                        htmlFor="user_knew_moraequipos_in_colombia_yes"
+                        className="ml-2"
+                      >
+                        Sí
+                      </label>
+                    </div>
+                    <div className="flex items-center">
+                      <input
+                        type="radio"
+                        id="user_knew_moraequipos_in_colombia_no"
+                        name="user_knew_moraequipos_in_colombia"
+                        className="contact__form-radio-input"
+                        onChange={() => setSabiaEquiposEnTodoColombia(false)}
+                        checked={sabiaEquiposEnTodoColombia === false}
+                      />
+                      <label
+                        htmlFor="user_knew_moraequipos_in_colombia_no"
+                        className="ml-2"
+                      >
+                        No
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="col-span-6 text-left border border-gray-200 p-2">
+              <p className="my-2 py-2 text-lg">
+                <span className="font-semibold">2. </span>
+                Por favor califique en una escala de 1 a 5, donde 5 es la mejor
+                calificación posible, los siguientes aspectos de Moraequipos
+                SAS.
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-2">
+                <div className="contact__form-div mb-3 col-span-1 font-semibold">
+                  <label className="">
+                    Tiempo de respuesta a sus solicitudes
+                  </label>
+                  <div className="flex justify-start items-center space-x-4 mt-4">
+                    {Array.from({ length: 5 }, (_, i) => (
+                      <div key={i} className="flex items-center">
+                        <input
+                          type="radio"
+                          name="user_moraequipos_response_time"
+                          id={`tiempoRespuestaMq-${i + 1}`}
+                          className="contact__form-radio-input"
+                          onChange={() => setTiempoRespuestaMq(`${i + 1}`)}
+                          checked={tiempoRespuestaMq === `${i + 1}`}
+                          value={i + 1}
+                        />
+                        <label
+                          htmlFor={`user_moraequipos_response_time-${i + 1}`}
+                          className="ml-2"
+                        >
+                          {i + 1}
+                        </label>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <div className="contact__form-div mb-3 col-span-1 font-semibold">
+                  <label className="">Equipo de trabajo disponible </label>
+                  <div className="flex justify-start items-center space-x-4 mt-4">
+                    {Array.from({ length: 5 }, (_, i) => (
+                      <div key={i} className="flex items-center">
+                        <input
+                          type="radio"
+                          name="user_moraequipos_team_available"
+                          id={`equipoDisponibleMq-${i + 1}`}
+                          className="contact__form-radio-input"
+                          onChange={() => setEquipoDisponibleMq(`${i + 1}`)}
+                          checked={equipoDisponibleMq === `${i + 1}`}
+                          value={i + 1}
+                        />
+                        <label
+                          htmlFor={`user_moraequipos_team_available-${i + 1}`}
+                          className="ml-2"
+                        >
+                          {i + 1}
+                        </label>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <div className="contact__form-div mb-3 col-span-1 font-semibold">
+                  <label className="">
+                    Diseño de las unidades de agua que produce{' '}
+                  </label>
+                  <div className="flex justify-start items-center space-x-4 mt-4">
+                    {Array.from({ length: 5 }, (_, i) => (
+                      <div key={i} className="flex items-center">
+                        <input
+                          type="radio"
+                          name="user_moraequipos_design_units"
+                          id={`disenoMq-${i + 1}`}
+                          className="contact__form-radio-input"
+                          onChange={() => setDiseñoUnidadesMq(`${i + 1}`)}
+                          checked={diseñoUnidadesMq === `${i + 1}`}
+                          value={i + 1}
+                        />
+                        <label
+                          htmlFor={`user_moraequipos_design_units-${i + 1}`}
+                          className="ml-2"
+                        >
+                          {i + 1}
+                        </label>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <div className="contact__form-div mb-3 col-span-1 font-semibold">
+                  <label className="">
+                    Calidad de las unidades de agua que produce
+                  </label>
+                  <div className="flex justify-start items-center space-x-4 mt-4">
+                    {Array.from({ length: 5 }, (_, i) => (
+                      <div key={i} className="flex items-center">
+                        <input
+                          type="radio"
+                          name="user_moraequipos_quality_units"
+                          id={`calidadMq-${i + 1}`}
+                          className="contact__form-radio-input"
+                          onChange={() => setCalidadUnidadesMq(`${i + 1}`)}
+                          checked={calidadUnidadesMq === `${i + 1}`}
+                          value={i + 1}
+                        />
+                        <label
+                          htmlFor={`user_moraequipos_quality_units-${i + 1}`}
+                          className="ml-2"
+                        >
+                          {i + 1}
+                        </label>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <div className="contact__form-div mb-3 col-span-1 font-semibold">
+                  <label className="">Ubicación geográfica (Bogotá)</label>
+                  <div className="flex justify-start items-center space-x-4 mt-4">
+                    {Array.from({ length: 5 }, (_, i) => (
+                      <div key={i} className="flex items-center">
+                        <input
+                          type="radio"
+                          name="user_moraequipos_geographic_location"
+                          id={`ubicacionMq-${i + 1}`}
+                          className="contact__form-radio-input"
+                          onChange={() => setUbicacionMq(`${i + 1}`)}
+                          checked={ubicacionMq === `${i + 1}`}
+                          value={i + 1}
+                        />
+                        <label
+                          htmlFor={`user_moraequipos_geographic_location-${
+                            i + 1
+                          }`}
+                          className="ml-2"
+                        >
+                          {i + 1}
+                        </label>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <div className="contact__form-div mb-3 col-span-1 font-semibold">
+                  <label className="">Atención a nivel nacional</label>
+                  <div className="flex justify-start items-center space-x-4 mt-4">
+                    {Array.from({ length: 5 }, (_, i) => (
+                      <div key={i} className="flex items-center">
+                        <input
+                          type="radio"
+                          name="user_moraequipos_national_attention"
+                          id={`atencionNivelNacionalMq-${i + 1}`}
+                          className="contact__form-radio-input"
+                          onChange={() =>
+                            setAtencionNivelNacionalMq(`${i + 1}`)
+                          }
+                          checked={atencionNivelNacionalMq === `${i + 1}`}
+                          value={i + 1}
+                        />
+                        <label
+                          htmlFor={`user_moraequipos_national_attention-${
+                            i + 1
+                          }`}
+                          className="ml-2"
+                        >
+                          {i + 1}
+                        </label>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <div className="contact__form-div mb-3 col-span-1 font-semibold">
+                  <label className="">
+                    Infraestructura disponible para atenderle
+                  </label>
+                  <div className="flex justify-start items-center space-x-4 mt-4">
+                    {Array.from({ length: 5 }, (_, i) => (
+                      <div key={i} className="flex items-center">
+                        <input
+                          type="radio"
+                          name="user_moraequipos_infrastructure"
+                          id={`infraestructuraMq-${i + 1}`}
+                          className="contact__form-radio-input"
+                          onChange={() => setInfraestructuraMq(`${i + 1}`)}
+                          checked={infraestructuraMq === `${i + 1}`}
+                          value={i + 1}
+                        />
+                        <label
+                          htmlFor={`user_moraequipos_infrastructure-${i + 1}`}
+                          className="ml-2"
+                        >
+                          {i + 1}
+                        </label>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="col-span-6 text-left border border-gray-200 p-2">
+              <p className="my-2 py-2 text-lg">
+                <span className="font-semibold">3. </span>
+                En caso de estar interesado en aceptar nuestra propuesta de
+                quedarse con la unidad de agua que Annar Diagnóstica le instaló,
+                por favor indíquenos cual sería para Usted la mejor opción de
+                negociación, forma de pago, y términos generales que le
+                ayudarían a tomar la decisión.
+              </p>
+              <textarea
+                name="user_negotiation_option_stay"
+                className="w-full h-20 p-2 border rounded"
+                onChange={(e) => setOpcionNegociaciónQuedarse(e.target.value)}
+                value={opcionNegociaciónQuedarse}
+              />
+            </div>
+          </div>
+        </div>
+        <div className="my-3">
+          <p className="font-bold text-xl my-2">
+            Agradecemos el haber diligenciado esta encuesta. Su opinión es muy
+            valiosa para nuestra organización.
+          </p>
+          <p className="text-lg my-2">
+            Nos complace informarle además qué, entre las personas que nos hagan
+            llegar un <span className="font-bold">video</span> contándonos su
+            experiencia con Moraequipos, detallando los tres puntos de esta
+            encuesta, donde además aparezca su laboratorio, su personal y la
+            unidad de agua, vamos a rifar{' '}
+            <span className="font-bold">
+              una unidad de agua para uso en su laboratorio{' '}
+            </span>{' '}
+            (eventualmente la misma unidad que tiene actualmente).
+            <br />
+            <br /> El video puede ser enviado vía WhatsApp al{' '}
+            <span className="font-bold">320 219 3192</span> o por correo
+            electrónico a{' '}
+            <span className="font-bold">infocomercial@moraequipos.com. </span>{' '}
+            <br />
+            <br />
+            Tenga en cuenta que esta segunda rifa, se va a realizar entre pocos
+            laboratorios y su laboratorio tendrá más opciones de ganar.
+            ¡Anímese! Al llenar la encuesta y enviar el video,{' '}
+            <span className="font-bold">tiene dos oportunidades de ganar.</span>
+          </p>
         </div>
         <button className="button button--flex btn-contact mt-3" type="submit">
           <span className="text-white">Enviar</span>

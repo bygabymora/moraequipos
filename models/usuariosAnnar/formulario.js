@@ -48,6 +48,7 @@ const formularioAnnarSchema = new mongoose.Schema(
     siReemplazableQue: { type: String, required: false },
     conociaMoraequipos: { type: Boolean, required: false },
     moraequiposEsSerio: { type: Boolean, required: false },
+    moraequiposDaConfianza: { type: Boolean, required: false },
     morequiposCumpleComoProveedor: { type: Boolean, required: false },
     sabiaEquiposEnTodoColombia: { type: Boolean, required: false },
     tiempoRespuestaMq: { type: String, required: false },
