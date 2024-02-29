@@ -222,7 +222,7 @@ const Formulario = () => {
       setMedioDeContacto('');
 
       setTimeout(() => {
-        router.push('/gracias');
+        router.push('/usuariosAnnar/gracias');
       }, 2000);
     } catch (err) {
       toast.error(getError(err));
