@@ -356,14 +356,18 @@ const Formulario = () => {
           Agradecemos de antemano el tiempo que Usted nos obsequia, en responder
           esta encuesta. Su opinión es muy valiosa para nuestra organización.
           <br /> <br />
-          Entre los participantes,{' '}
           <span className="font-bold">
-            vamos a rifar 3 sistemas de potabilización de agua para uso en el
-            hogar o la finca.
+            Entre los participantes, vamos a rifar 3 sistemas de potabilización
+            de agua para uso en el hogar o la finca.
           </span>{' '}
-          <br /> <br /> Por favor diligencie completamente la información
-          solicitada al finalizar la encuesta, y a vuelta de correo le estaremos
-          haciendo llegar el número asignado a usted, para garantizar así su
+          <br />
+          <br />
+          <span className="font-bold text-lg">
+            El tiempo de llenado de esta encuesta es de alrededor de 8 minutos.
+          </span>
+          <br /> Por favor diligencie completamente la información solicitada al
+          finalizar la encuesta, y a vuelta de correo le estaremos haciendo
+          llegar el número asignado a usted, para garantizar así su
           participación en la rifa, así como las demás indicaciones al respecto.
           <br />
           <br />
