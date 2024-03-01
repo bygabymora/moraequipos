@@ -52,9 +52,7 @@ const VideoContainer = () => {
       videoElement.addEventListener('play', handlePlay);
       videoElement.addEventListener('pause', handlePause);
 
-      // Optional: Attempt to autoplay the video on load
       videoElement.play().catch((err) => {
-        // Handle the case where autoplay was prevented by the browser
         console.log('Autoplay was prevented', err);
       });
 
@@ -85,7 +83,10 @@ const VideoContainer = () => {
             volume="0.8"
             controls
           >
-            <source src="/images/PropuestaComercial.mp4" type="video/mp4" />
+            <source
+              src="/videos/usuariosAnnar/videoUsuarios.mp4"
+              type="video/mp4"
+            />
           </video>
           {!isPlaying && (
             <FaCirclePlay
