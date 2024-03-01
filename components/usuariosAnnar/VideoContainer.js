@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import RootLayout from '../../components/layout';
-
+import Image from 'next/image';
 import { FaCirclePlay } from 'react-icons/fa6';
 
 const VideoContainer = ({ setShowButton }) => {
@@ -73,7 +73,7 @@ const VideoContainer = ({ setShowButton }) => {
 
   return (
     <RootLayout title="moraequipos">
-      <main className="flex flex-col items-center justify-center h-auto md:h-[75vh] lg:h-[80vh] mt-2 md:mt-5">
+      <main className="flex flex-col items-center justify-center h-auto md:h-[75vh] lg:h-[80vh] mt-10 md:mt-5">
         <div className="flex justify-center items-center leading-tight max-w-xl mx-auto w-full pt-2 px-2 relative lg:max-w-4xl">
           <video
             ref={videoRef}

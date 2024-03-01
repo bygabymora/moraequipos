@@ -23,7 +23,7 @@ export default function UsuariosAnnar() {
           </div>
           <div className="md:flex">
             <VideoContainer setShowButton={setShowButton} />
-            <div className="md:flex justify-center items-center leading-tight w-[90%] fixed md:static bottom-2 left-0 right-0 mx-auto">
+            <div className="md:flex justify-center items-center leading-tight w-[90%] fixed md:static lg:fixed bottom-2 md:bottom-[5rem] left-0 right-0 mx-auto">
               {showButton && (
                 <Link
                   className="flex justify-center items-center w-full  leading-tight"
