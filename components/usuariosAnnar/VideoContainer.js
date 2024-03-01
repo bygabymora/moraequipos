@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import RootLayout from '../../components/layout';
 import Image from 'next/image';
 import { FaCirclePlay } from 'react-icons/fa6';
+import Link from 'next/link';
 
 const VideoContainer = () => {
   const videoRef = useRef(null);
@@ -105,15 +106,17 @@ const VideoContainer = () => {
           )}
         </div>
         {showButton && (
-          <button className="">
-            <Image
-              src="https://res.cloudinary.com/do6oloxvt/image/upload/v1709251368/2_al7xvu.png"
-              alt="Button Image"
-              className="rounded-b-lg w-[90%] mb-5 "
-              width={600}
-              height={320}
-            />
-          </button>
+          <Link href="https://wa.me/573202193192?text=Hola%20Moraequipos%20Estoy%20interesado%20en%20quedarme%20con%20la%20unidad%20de%20agua.">
+            <button className="">
+              <Image
+                src="https://res.cloudinary.com/do6oloxvt/image/upload/v1709251368/2_al7xvu.png"
+                alt="Button Image"
+                className="rounded-b-lg w-[90%] mb-5 "
+                width={600}
+                height={320}
+              />
+            </button>
+          </Link>
         )}
       </main>
     </RootLayout>
