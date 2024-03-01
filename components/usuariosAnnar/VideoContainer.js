@@ -2,12 +2,10 @@ import React, { useEffect, useRef, useState } from 'react';
 import RootLayout from '../../components/layout';
 import Image from 'next/image';
 import { FaCirclePlay } from 'react-icons/fa6';
-import Link from 'next/link';
 
-const VideoContainer = () => {
+const VideoContainer = ({ setShowButton }) => {
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [showButton, setShowButton] = useState(false);
 
   const togglePlay = () => {
     if (videoRef.current) {
@@ -76,15 +74,6 @@ const VideoContainer = () => {
   return (
     <RootLayout title="moraequipos">
       <main className="flex flex-col items-center justify-center h-auto md:h-[75vh] lg:h-[80vh] mt-2 md:mt-5">
-        <div className="flex justify-center items-center w-full leading-tight sticky top-0 sm:hidden">
-          <Image
-            src="https://res.cloudinary.com/do6oloxvt/image/upload/v1706815543/VISI%C3%93N_2024_10_lxucse.png"
-            alt="Moraequipos"
-            className="rounded-t-lg w-[90%] mb-5 "
-            width={600}
-            height={320}
-          />
-        </div>
         <div className="flex justify-center items-center leading-tight max-w-xl mx-auto w-full pt-2 px-2 relative lg:max-w-4xl">
           <video
             ref={videoRef}
@@ -105,19 +94,6 @@ const VideoContainer = () => {
             />
           )}
         </div>
-        {showButton && (
-          <Link href="https://wa.me/573202193192?text=Hola%20Moraequipos%20Estoy%20interesado%20en%20quedarme%20con%20la%20unidad%20de%20agua.">
-            <button className="">
-              <Image
-                src="https://res.cloudinary.com/do6oloxvt/image/upload/v1709251368/2_al7xvu.png"
-                alt="Button Image"
-                className="rounded-b-lg w-[90%] mb-5 "
-                width={600}
-                height={320}
-              />
-            </button>
-          </Link>
-        )}
       </main>
     </RootLayout>
   );
