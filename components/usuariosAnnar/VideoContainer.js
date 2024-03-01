@@ -6,6 +6,7 @@ import { FaCirclePlay } from 'react-icons/fa6';
 const VideoContainer = () => {
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [showButton, setShowButton] = useState(false);
 
   const togglePlay = () => {
     if (videoRef.current) {
@@ -45,12 +46,19 @@ const VideoContainer = () => {
   useEffect(() => {
     const videoElement = videoRef.current;
 
-    if (videoElement) {
-      const handlePlay = () => setIsPlaying(true);
-      const handlePause = () => setIsPlaying(false);
+    const handlePlay = () => setIsPlaying(true);
+    const handlePause = () => setIsPlaying(false);
 
+    const timeUpdateHandler = () => {
+      if (videoElement.currentTime >= 95) {
+        setShowButton(true);
+      }
+    };
+
+    if (videoElement) {
       videoElement.addEventListener('play', handlePlay);
       videoElement.addEventListener('pause', handlePause);
+      videoElement.addEventListener('timeupdate', timeUpdateHandler);
 
       videoElement.play().catch((err) => {
         console.log('Autoplay was prevented', err);
@@ -59,6 +67,7 @@ const VideoContainer = () => {
       return () => {
         videoElement.removeEventListener('play', handlePlay);
         videoElement.removeEventListener('pause', handlePause);
+        videoElement.removeEventListener('timeupdate', timeUpdateHandler);
       };
     }
   }, []);
@@ -95,6 +104,17 @@ const VideoContainer = () => {
             />
           )}
         </div>
+        {showButton && (
+          <button className="">
+            <Image
+              src="https://res.cloudinary.com/do6oloxvt/image/upload/v1709251368/2_al7xvu.png"
+              alt="Button Image"
+              className="rounded-b-lg w-[90%] mb-5 "
+              width={600}
+              height={320}
+            />
+          </button>
+        )}
       </main>
     </RootLayout>
   );
