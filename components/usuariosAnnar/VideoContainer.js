@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import RootLayout from '../../components/layout';
-import Image from 'next/image';
+
 import { FaCirclePlay } from 'react-icons/fa6';
 
 const VideoContainer = ({ setShowButton }) => {
@@ -69,7 +69,7 @@ const VideoContainer = ({ setShowButton }) => {
         videoElement.removeEventListener('timeupdate', timeUpdateHandler);
       };
     }
-  }, []);
+  }, [setShowButton]); // Include setShowButton in the dependency array
 
   return (
     <RootLayout title="moraequipos">
