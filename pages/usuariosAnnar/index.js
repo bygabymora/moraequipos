@@ -22,13 +22,13 @@ export default function UsuariosAnnar() {
             />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4 w-full">
-            <div className="md:col-span-3 col-span-1">
+            <div className="lg:col-span-3 col-span-1">
               <VideoContainer setShowButton={setShowButton} />
             </div>
-            <div className="flex flex-col items-center justify-center w-full md:col-span-1 col-span-1">
+            <div className="flex flex-col items-center justify-center w-full lg:col-span-1 col-span-1">
               {showButton && (
                 <Link
-                  className="flex justify-center items-center w-full mb-4" // Make sure the link itself is also centered
+                  className="flex justify-center items-center w-full mb-4"
                   href="https://wa.me/573202193192?text=Hola%20Moraequipos%20Estoy%20interesado%20en%20quedarme%20con%20la%20unidad%20de%20agua."
                 >
                   <Image
@@ -40,7 +40,7 @@ export default function UsuariosAnnar() {
                 </Link>
               )}
               <Link
-                className="flex justify-center items-center w-full" // Ensure the link is centered
+                className="flex justify-center items-center w-full"
                 href="/usuariosAnnar/formulario"
               >
                 <Image
