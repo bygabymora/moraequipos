@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import RootLayout from '../../components/layout';
-import Image from 'next/image';
+
 import { FaCirclePlay } from 'react-icons/fa6';
 
 const VideoContainer = ({ setShowButton }) => {
@@ -89,7 +89,7 @@ const VideoContainer = ({ setShowButton }) => {
           </video>
           {!isPlaying && (
             <FaCirclePlay
-              className="absolute top-1/2 left-1/2 hidden md:block transform -translate-x-1/2 -translate-y-1/2 text-[10rem] text-[#8b1414] cursor-pointer opacity-70"
+              className="absolute top-1/2 left-1/2 hidden md:block  transform -translate-x-1/2 -translate-y-1/2 text-[10rem] text-[#8b1414] cursor-pointer opacity-70 md:text-[5rem] lg:text-[10rem]"
               onClick={togglePlay}
             />
           )}
