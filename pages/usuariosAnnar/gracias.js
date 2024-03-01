@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
-import ThankYouImage from '../public/images/ThankYouImage.svg';
-import ThankYouImage2 from '../public/images/ThankYouImage2.svg';
+import ThankYouImage from '../../public/images/ThankYouImage.svg';
+import ThankYouImage2 from '../../public/images/ThankYouImage2.svg';
 
 const ThankYouPage = () => {
   return (
