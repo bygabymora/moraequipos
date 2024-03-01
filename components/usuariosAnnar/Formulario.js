@@ -16,7 +16,7 @@ const Formulario = () => {
   const [facilidadDeUso, setFacilidadDeUso] = useState('');
   const [calidadDeAgua, setCalidadDeAgua] = useState('');
   const [color, setColor] = useState('');
-  const [nivelDeRuido, setNivelDeRuido] = useState('5');
+  const [nivelDeRuido, setNivelDeRuido] = useState('');
   const [agregariaAlgo, setAgregariaAlgo] = useState('');
   const [suprimiriaAlgo, setSuprimiriaAlgo] = useState('');
   const [conosOtraMarca, setConosOtraMarca] = useState('');
