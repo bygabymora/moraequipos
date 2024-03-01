@@ -21,7 +21,7 @@ export default function UsuariosAnnar() {
               height={320}
             />
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 w-full">
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 w-full">
             <div className="lg:col-span-3 col-span-1">
               <VideoContainer setShowButton={setShowButton} />
             </div>
