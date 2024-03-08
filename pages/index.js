@@ -1,6 +1,7 @@
 import React from 'react';
 import RootLayout from '../components/layout';
 import Image from 'next/image';
+import Descarga from '../components/usuariosAnnar/Descarga';
 
 export default function Home() {
   return (
@@ -14,6 +15,9 @@ export default function Home() {
             height="800"
             layout="responsive"
           />
+        </div>
+        <div>
+          <Descarga />
         </div>
       </main>
     </RootLayout>

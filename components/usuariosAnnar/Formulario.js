@@ -2098,28 +2098,6 @@ const Formulario = () => {
             Agradecemos el haber diligenciado esta encuesta. Su opinión es muy
             valiosa para nuestra organización.
           </p>
-          <p className="text-lg my-2">
-            Nos complace informarle además qué, entre las personas que nos hagan
-            llegar un <span className="font-bold">video</span> contándonos su
-            experiencia con Moraequipos, detallando los tres puntos de esta
-            encuesta, donde además aparezca su laboratorio, su personal y la
-            unidad de agua, vamos a rifar{' '}
-            <span className="font-bold">
-              una unidad de agua para uso en su laboratorio{' '}
-            </span>{' '}
-            (eventualmente la misma unidad que tiene actualmente).
-            <br />
-            <br /> El video puede ser enviado vía WhatsApp al <br />
-            <span className="font-bold">320 219 3192</span> o por correo
-            electrónico a{' '}
-            <span className="font-bold">infocomercial@moraequipos.com. </span>{' '}
-            <br />
-            <br />
-            Tenga en cuenta que esta segunda rifa, se va a realizar entre pocos
-            laboratorios y su laboratorio tendrá más opciones de ganar.
-            ¡Anímese! Al llenar la encuesta y enviar el video, <br />
-            <span className="font-bold">tiene dos oportunidades de ganar.</span>
-          </p>
         </div>
         <button className="button button--flex btn-contact mt-3" type="submit">
           <span className="text-white">Enviar</span>
