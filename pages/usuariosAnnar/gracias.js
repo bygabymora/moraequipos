@@ -7,7 +7,7 @@ import Link from 'next/link';
 const ThankYouPage = () => {
   return (
     <div className="flex flex-col items-center justify-center h-screen bg-gray-50 p-4">
-      <div className="text-center items-center">
+      <div className="text-center items-center max-w-[1700px]">
         <Image
           src={ThankYouImage}
           alt="Gracias"
