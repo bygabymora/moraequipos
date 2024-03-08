@@ -7,14 +7,18 @@ import Link from 'next/link';
 const ThankYouPage = () => {
   return (
     <div className="flex flex-col items-center justify-center h-screen bg-gray-50 p-4">
-      <div className="text-center ">
+      <div className="text-center items-center">
         <Image
           src={ThankYouImage}
           alt="Gracias"
           className="mx-auto md:hidden"
         />
-        <Image src={ThankYouImage2} alt="Gracias" className="hidden md:block" />
-        <h2 className="text-2xl font-bold text-gray-800 mt-4">
+        <Image
+          src={ThankYouImage2}
+          alt="Gracias"
+          className="hidden md:block mx-auto"
+        />
+        <h2 className="text-2xl font-bold text-gray-800 mt-4 ">
           ¡Gracias por su interés!
         </h2>
         <p className="text-lg my-2 font-bold">
