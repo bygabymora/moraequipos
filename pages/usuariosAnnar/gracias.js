@@ -6,14 +6,16 @@ import Link from 'next/link';
 const ThankYouPage = () => {
   return (
     <div className="flex flex-col items-center justify-center h-screen bg-gray-50 p-4">
-      <div className="text-center items-center max-w-[1700px] mt-[8rem] p-10">
-        <Image
-          src="https://res.cloudinary.com/do6oloxvt/image/upload/v1706038754/Banner_j0ufni.jpg"
-          alt="Gracias"
-          className="mx-auto md:hidden"
-          width={1200}
-          height={240}
-        />
+      <div className="text-center items-center max-w-[1700px] mt-[20rem]  p-10 flex flex-col md:gap-10 gap-5">
+        <div className="flex justify-center items-center w-full leading-tight sticky top-4 md:hidden ">
+          <Image
+            src="https://res.cloudinary.com/do6oloxvt/image/upload/v1706038754/Banner_j0ufni.jpg"
+            alt="Moraequipos"
+            className="rounded-t-lg w-[90%] mb-5"
+            width={600}
+            height={320}
+          />
+        </div>
         <Image
           src="https://res.cloudinary.com/do6oloxvt/image/upload/v1706038754/Banner_j0ufni.jpg"
           alt="Gracias"
@@ -21,10 +23,10 @@ const ThankYouPage = () => {
           width={1200}
           height={240}
         />
-        <h2 className="text-[5rem] font-bold text-gray-800 mt-4 ">
+        <h2 className="lg:text-[5rem] text-xl font-bold text-gray-800 ">
           ¡Espere hay más premios!
         </h2>
-        <p className="text-xl my-2 font-bold">
+        <p className="text-xl my-2 font-bold mt-10">
           Nos complace informarle además qué, entre las personas que nos hagan
           llegar un video contándonos su experiencia con Moraequipos, detallando
           los tres puntos de esta encuesta, donde además aparezca su

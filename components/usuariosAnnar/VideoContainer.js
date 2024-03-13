@@ -64,7 +64,7 @@ const VideoContainer = ({ setShowButton, setShowButton2 }) => {
       if (videoElement.currentTime >= 95) {
         setShowButton(true);
       }
-      if (videoElement.currentTime >= 35) {
+      if (videoElement.currentTime >= 44) {
         setShowButton2(true);
       }
     };
