@@ -1,27 +1,30 @@
 import React from 'react';
 import Image from 'next/image';
-import ThankYouImage from '../../public/images/ThankYouImage.svg';
-import ThankYouImage2 from '../../public/images/ThankYouImage2.svg';
+
 import Link from 'next/link';
 
 const ThankYouPage = () => {
   return (
     <div className="flex flex-col items-center justify-center h-screen bg-gray-50 p-4">
-      <div className="text-center items-center max-w-[1700px]">
+      <div className="text-center items-center max-w-[1700px] mt-[8rem] p-10">
         <Image
-          src={ThankYouImage}
+          src="https://res.cloudinary.com/do6oloxvt/image/upload/v1706038754/Banner_j0ufni.jpg"
           alt="Gracias"
           className="mx-auto md:hidden"
+          width={1200}
+          height={240}
         />
         <Image
-          src={ThankYouImage2}
+          src="https://res.cloudinary.com/do6oloxvt/image/upload/v1706038754/Banner_j0ufni.jpg"
           alt="Gracias"
           className="hidden md:block mx-auto"
+          width={1200}
+          height={240}
         />
-        <h2 className="text-2xl font-bold text-gray-800 mt-4 ">
-          ¡Gracias por su interés!
+        <h2 className="text-[5rem] font-bold text-gray-800 mt-4 ">
+          ¡Espere hay más premios!
         </h2>
-        <p className="text-lg my-2 font-bold">
+        <p className="text-xl my-2 font-bold">
           Nos complace informarle además qué, entre las personas que nos hagan
           llegar un video contándonos su experiencia con Moraequipos, detallando
           los tres puntos de esta encuesta, donde además aparezca su
@@ -33,14 +36,14 @@ const ThankYouPage = () => {
           <br />
           El video puede ser enviado vía WhatsApp al{' '}
           <Link
-            className="flex justify-center items-center w-full mb-4 underline"
+            className="flex justify-center items-center w-full mb-4 underline text-black"
             href="https://wa.me/573202193192?text=Hola%20Moraequipos.%20Este%20es%20mi%20video."
           >
             320 219 3192
           </Link>{' '}
           o por correo electrónico a
           <Link
-            className="flex justify-center items-center w-full mb-4 underline"
+            className="flex justify-center items-center w-full mb-4 underline text-black"
             href="mailto:elcorreoquequieres@correo.com"
           >
             infocomercial@moraequipos.com.
