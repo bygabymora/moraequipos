@@ -338,12 +338,12 @@ const Formulario = () => {
       );
   };
 
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
-  };
   useEffect(() => {
-    const numeroRifa = Math.floor(Math.random() * 1000000);
-    setNumeroRifa(numeroRifa);
+    const generarNumeroRifa = () => {
+      const numero = Math.floor(1000 + Math.random() * 9000);
+      setNumeroRifa(numero.toString());
+    };
+    generarNumeroRifa();
   }, []);
 
   return (
