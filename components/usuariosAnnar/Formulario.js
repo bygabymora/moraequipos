@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 import { toast } from 'react-toastify';
@@ -79,6 +79,7 @@ const Formulario = () => {
   const [celular, setCelular] = useState('');
   const [email, setEmail] = useState('');
   const [medioDeContacto, setMedioDeContacto] = useState('');
+  const [numeroRifa, setNumeroRifa] = useState('');
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -150,6 +151,7 @@ const Formulario = () => {
         celular,
         email,
         medioDeContacto,
+        numeroRifa,
       });
       sendEmail;
 
@@ -232,7 +234,7 @@ const Formulario = () => {
 
   const sendEmail = () => {
     const formData = new FormData();
-
+    formData.append('numeroRifa', numeroRifa);
     formData.append('user_company', razonSocial);
     formData.append('user_model', modelo);
     formData.append('user_serial', serial);
@@ -339,6 +341,10 @@ const Formulario = () => {
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
   };
+  useEffect(() => {
+    const numeroRifa = Math.floor(Math.random() * 1000000);
+    setNumeroRifa(numeroRifa);
+  }, []);
 
   return (
     <div className=" m-x2 text-center  bg-gray-50 p-4">
@@ -407,6 +413,7 @@ const Formulario = () => {
                 value={nombre || ''}
                 required
               />
+              <input type="hidden" name="numeroRifa" value={numeroRifa} />
             </div>
             <div className="contact__form-div mb-3 col-span-1 ">
               <label className="contact__form-tag  bg-gray-50">Celular*</label>
