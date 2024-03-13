@@ -151,6 +151,7 @@ const Formulario = () => {
         email,
         medioDeContacto,
       });
+      sendEmail;
 
       form.current.reset();
       toast.success('Formulario enviado con éxito');
@@ -320,10 +321,10 @@ const Formulario = () => {
 
     emailjs
       .sendForm(
-        'service_grtjjzp5',
-        'template_nqt1u2d5',
+        'service_3a8jikd',
+        'template_3yrp9q8',
         form.current,
-        'LuJZSocJe5a_St7dQ5'
+        'wG2TINcQVhRY21xT-'
       )
       .then(
         (result) => {
