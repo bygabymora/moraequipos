@@ -3,7 +3,7 @@ import RootLayout from '../../components/layout';
 
 import { FaCirclePlay } from 'react-icons/fa6';
 
-const VideoContainer = ({ setShowButton }) => {
+const VideoContainer = ({ setShowButton, setShowButton2 }) => {
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
 
@@ -30,15 +30,23 @@ const VideoContainer = ({ setShowButton }) => {
         console.error('Error trying to enable fullscreen: ', err);
       });
     } else if (element.webkitRequestFullscreen) {
-      /* Safari */
       element.webkitRequestFullscreen().catch((err) => {
         console.error('Error trying to enable fullscreen on Safari: ', err);
       });
     } else if (element.msRequestFullscreen) {
-      /* IE11 */
       element.msRequestFullscreen().catch((err) => {
         console.error('Error trying to enable fullscreen on IE11: ', err);
       });
+    }
+  };
+
+  const exitFullScreen = () => {
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    } else if (document.webkitExitFullscreen) {
+      document.webkitExitFullscreen();
+    } else if (document.msExitFullscreen) {
+      document.msExitFullscreen();
     }
   };
 
@@ -47,25 +55,30 @@ const VideoContainer = ({ setShowButton }) => {
 
     const handlePlay = () => setIsPlaying(true);
     const handlePause = () => setIsPlaying(false);
+    const handleEnded = () => {
+      exitFullScreen();
+      setIsPlaying(false);
+    };
 
     const timeUpdateHandler = () => {
       if (videoElement.currentTime >= 95) {
         setShowButton(true);
+      }
+      if (videoElement.currentTime >= 35) {
+        setShowButton2(true);
       }
     };
 
     if (videoElement) {
       videoElement.addEventListener('play', handlePlay);
       videoElement.addEventListener('pause', handlePause);
+      videoElement.addEventListener('ended', handleEnded);
       videoElement.addEventListener('timeupdate', timeUpdateHandler);
-
-      videoElement.play().catch((err) => {
-        console.log('Autoplay was prevented', err);
-      });
 
       return () => {
         videoElement.removeEventListener('play', handlePlay);
         videoElement.removeEventListener('pause', handlePause);
+        videoElement.removeEventListener('ended', handleEnded);
         videoElement.removeEventListener('timeupdate', timeUpdateHandler);
       };
     }

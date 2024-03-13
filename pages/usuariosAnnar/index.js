@@ -7,6 +7,7 @@ import Image from 'next/image';
 
 export default function UsuariosAnnar() {
   const [showButton, setShowButton] = useState(false);
+  const [showButton2, setShowButton2] = useState(false);
 
   return (
     <RootLayout title="moraequipos">
@@ -23,7 +24,10 @@ export default function UsuariosAnnar() {
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 w-full lg:p-10 ">
             <div className="lg:col-span-3 col-span-1">
-              <VideoContainer setShowButton={setShowButton} />
+              <VideoContainer
+                setShowButton={setShowButton}
+                setShowButton2={setShowButton2}
+              />
             </div>
             <div className="flex flex-col items-center justify-center w-full lg:col-span-1 col-span-1 p-6 ">
               {showButton && (
@@ -39,17 +43,19 @@ export default function UsuariosAnnar() {
                   />
                 </Link>
               )}
-              <Link
-                className="flex justify-center items-center w-full"
-                href="/usuariosAnnar/formulario"
-              >
-                <Image
-                  src="https://res.cloudinary.com/do6oloxvt/image/upload/v1709906246/1_anihif.png"
-                  alt="Moraequipos"
-                  width={400}
-                  height={210}
-                />
-              </Link>
+              {showButton2 && (
+                <Link
+                  className="flex justify-center items-center w-full"
+                  href="/usuariosAnnar/formulario"
+                >
+                  <Image
+                    src="https://res.cloudinary.com/do6oloxvt/image/upload/v1709906246/1_anihif.png"
+                    alt="Moraequipos"
+                    width={400}
+                    height={210}
+                  />
+                </Link>
+              )}
             </div>
           </div>
         </div>

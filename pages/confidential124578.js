@@ -1,8 +1,11 @@
+'use client';
 import React from 'react';
 import RootLayout from '../components/layout';
+
+import Descarga from '@/components/usuariosAnnar/Descarga';
 import Image from 'next/image';
 
-export default function Home() {
+export default function UsuariosAnnar() {
   return (
     <RootLayout title="moraequipos">
       <main className="bg-gray-50 pt-2">
@@ -15,6 +18,7 @@ export default function Home() {
             layout="responsive"
           />
         </div>
+        <Descarga />
       </main>
     </RootLayout>
   );

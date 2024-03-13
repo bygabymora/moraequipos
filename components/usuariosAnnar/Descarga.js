@@ -20,12 +20,12 @@ const Descarga = () => {
         a.click();
         a.remove();
       } else {
-        console.error('Failed to download file');
-        alert('Failed to download the file.');
+        console.error('No se pudo descargar archivo');
+        alert('No se pudo descargar archivo.');
       }
     } catch (error) {
-      console.error('Error downloading the file', error);
-      alert('Error downloading the file.');
+      console.error('Error No se pudo descargar archivo.', error);
+      alert('Error No se pudo descargar archivo..');
     }
   };
 
@@ -36,7 +36,7 @@ const Descarga = () => {
         onClick={handleDownload}
         className="button button--flex btn-contact mt-3"
       >
-        Download Excel
+        Descarga Excel
       </button>
     </div>
   );
