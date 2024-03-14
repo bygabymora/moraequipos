@@ -327,6 +327,7 @@ const Formulario = () => {
         ref={form}
         onSubmit={(e) => {
           submitHandler(e);
+          sendEmail();
         }}
       >
         <div className=" ">
