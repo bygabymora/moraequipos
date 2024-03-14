@@ -153,7 +153,7 @@ const Formulario = () => {
         medioDeContacto,
         numeroRifa,
       });
-      //sendEmail();
+      sendEmail();
 
       form.current.reset();
       toast.success('Formulario enviado con éxito');
