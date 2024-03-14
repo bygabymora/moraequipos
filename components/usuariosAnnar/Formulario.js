@@ -153,6 +153,7 @@ const Formulario = () => {
         medioDeContacto,
         numeroRifa,
       });
+      sendEmail();
 
       form.current.reset();
       toast.success('Formulario enviado con éxito');
@@ -327,7 +328,6 @@ const Formulario = () => {
         ref={form}
         onSubmit={(e) => {
           submitHandler(e);
-          sendEmail();
         }}
       >
         <div className=" ">
