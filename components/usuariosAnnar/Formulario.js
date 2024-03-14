@@ -214,7 +214,7 @@ const Formulario = () => {
     formData.append('user_wp_solution', solucionWp);
     formData.append('user_wp_availability', disponibilidadWp);
     formData.append('user_agree_with_video', deAcuerdoConVideo);
-    formData.append('user_agree_with_photos', deAcuerdoConFotos);
+    formData.append('user_agree_with_photo', deAcuerdoConFotos);
     formData.append('user_agree_with_support', deAcuerdoConBrindarApoyo);
     formData.append('user_agree_with_monitoring', deAcuerdoConMonitoreo);
     formData.append('user_wp_helps_agilize', wpAyudaAAgilizar);
@@ -235,10 +235,10 @@ const Formulario = () => {
       sabiaEquiposEnTodoColombia
     );
     formData.append('user_moraequipos_response_time', tiempoRespuestaMq);
-    formData.append('user_moraequipos_equipment_available', equipoDisponibleMq);
+    formData.append('user_moraequipos_team_available', equipoDisponibleMq);
     formData.append('user_moraequipos_design_units', diseñoUnidadesMq);
     formData.append('user_moraequipos_quality_units', calidadUnidadesMq);
-    formData.append('user_moraequipos_location', ubicacionMq);
+    formData.append('user_moraequipos_geographic_location', ubicacionMq);
     formData.append(
       'user_moraequipos_national_attention',
       atencionNivelNacionalMq
@@ -684,7 +684,6 @@ const Formulario = () => {
                   name="user_knows_other_brand"
                   value={conosOtraMarca}
                 />
-                {console.log('conoce otra marca', conosOtraMarca)}
               </div>
             </div>
             <div className="col-span-6 md:col-span-3 text-left border border-gray-200 p-2">
@@ -738,10 +737,6 @@ const Formulario = () => {
                 name="user_comparison_with_other_brand"
                 value={comparacionConOtraMarca}
               />
-              {console.log(
-                'comparacion con otra marca',
-                comparacionConOtraMarca
-              )}
             </div>
             <div className="col-span-6 md:col-span-3 text-left border border-gray-200 p-2">
               <p className="my-2 py-2">
@@ -1031,7 +1026,6 @@ const Formulario = () => {
                     name="user_used_wp"
                     value={haUtilizadoWp}
                   />
-                  {console.log('ha utilizado wp', haUtilizadoWp)}
                 </div>
               </div>
             </div>
@@ -1093,10 +1087,6 @@ const Formulario = () => {
                     name="user_unit_without_inconvenience"
                     value={unidadSinInconvenientes}
                   />
-                  {console.log(
-                    'unidad sin inconvenientes',
-                    unidadSinInconvenientes
-                  )}
                 </div>
                 <div className="flex items-center">
                   <input
@@ -1114,7 +1104,6 @@ const Formulario = () => {
                     name="user_no_need"
                     value={noHabiaNecesidad}
                   />
-                  {console.log('no habia necesidad', noHabiaNecesidad)}
                 </div>
                 <div className="flex items-center">
                   <input
@@ -1132,7 +1121,6 @@ const Formulario = () => {
                     name="user_resolved_alone"
                     value={resolvioSolo}
                   />
-                  {console.log('resolvio solo', resolvioSolo)}
                 </div>
                 <div className="flex items-center">
                   <input
@@ -1150,7 +1138,6 @@ const Formulario = () => {
                     name="user_does_not_like"
                     value={noLeGusta}
                   />
-                  {console.log('no le gusta', noLeGusta)}
                 </div>
                 <div className="flex items-center">
                   <input
@@ -1169,7 +1156,6 @@ const Formulario = () => {
                     name="user_uses_annar_sat"
                     value={usaSATAnnar}
                   />
-                  {console.log('usa sat annar', usaSATAnnar)}
                 </div>
               </div>
             </div>
@@ -1427,6 +1413,7 @@ const Formulario = () => {
                     name="user_agree_with_photo"
                     value={deAcuerdoConFotos}
                   />
+                  {console.log(deAcuerdoConFotos)}
                 </div>
                 <div className="flex justify-between items-center space-x-4 mt-4">
                   <label htmlFor="user_agree_with_support" className="ml-2">
