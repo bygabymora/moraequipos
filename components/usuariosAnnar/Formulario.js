@@ -154,8 +154,6 @@ const Formulario = () => {
         numeroRifa,
       });
 
-      sendEmail();
-
       form.current.reset();
       toast.success('Formulario enviado con éxito');
       setTimeout(() => {
