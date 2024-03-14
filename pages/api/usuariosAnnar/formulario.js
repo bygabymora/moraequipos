@@ -7,7 +7,10 @@ const handler = async (req, res) => {
 
     const newFormularioAnnar = new FormularioAnnar({
       ...req.body,
+      numeroRifa: req.body.numeroRifa,
     });
+    console.log('newFormularioAnnar:', newFormularioAnnar);
+    console.log('req.body:', req.body);
 
     const formularioAnnar = await newFormularioAnnar.save();
     res.status(201).send(formularioAnnar);

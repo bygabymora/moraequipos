@@ -153,7 +153,7 @@ const Formulario = () => {
         medioDeContacto,
         numeroRifa,
       });
-      sendEmail();
+      //sendEmail();
 
       form.current.reset();
       toast.success('Formulario enviado con éxito');
@@ -346,6 +346,7 @@ const Formulario = () => {
                 required
               />
               <input type="hidden" name="numeroRifa" value={numeroRifa} />
+              {console.log('numero', numeroRifa)}
             </div>
             <div className="contact__form-div mb-3 col-span-1 ">
               <label className="contact__form-tag  bg-gray-50">Celular*</label>
