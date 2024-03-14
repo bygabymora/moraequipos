@@ -82,7 +82,7 @@ const VideoContainer = ({ setShowButton, setShowButton2 }) => {
         videoElement.removeEventListener('timeupdate', timeUpdateHandler);
       };
     }
-  }, [setShowButton]);
+  }, [setShowButton, setShowButton2]);
 
   return (
     <RootLayout title="moraequipos">
