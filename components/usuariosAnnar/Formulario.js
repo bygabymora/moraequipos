@@ -658,11 +658,10 @@ const Formulario = () => {
                 <div className="flex items-center">
                   <input
                     type="radio"
-                    id="user_knows_other_brand"
-                    name="user_knows_other_brand"
+                    id="user_knows_other_brand_yes"
                     className="contact__form-radio-input"
-                    onChange={() => setConosOtraMarca(true)}
-                    checked={conosOtraMarca === true}
+                    onChange={() => setConosOtraMarca('Sí')}
+                    checked={conosOtraMarca === 'Sí'}
                   />
                   <label htmlFor="user_knows_other_brand_yes" className="ml-2">
                     Sí
@@ -672,15 +671,20 @@ const Formulario = () => {
                   <input
                     type="radio"
                     id="user_knows_other_brand_no"
-                    name="user_knows_other_brand"
                     className="contact__form-radio-input"
-                    onChange={() => setConosOtraMarca(false)}
-                    checked={conosOtraMarca === false}
+                    onChange={() => setConosOtraMarca('No')}
+                    checked={conosOtraMarca === 'No'}
                   />
                   <label htmlFor="user_knows_other_brand_no" className="ml-2">
                     No
                   </label>
                 </div>
+                <input
+                  type="hidden"
+                  name="user_knows_other_brand"
+                  value={conosOtraMarca}
+                />
+                {console.log('conoce otra marca', conosOtraMarca)}
               </div>
             </div>
             <div className="col-span-6 md:col-span-3 text-left border border-gray-200 p-2">
@@ -694,7 +698,6 @@ const Formulario = () => {
                   <input
                     type="radio"
                     id="comparison_better"
-                    name="user_comparison_with_other_brand"
                     className="contact__form-radio-input"
                     onChange={() => setComparacionConOtraMarca('Mejor')}
                     checked={comparacionConOtraMarca === 'Mejor'}
@@ -707,7 +710,6 @@ const Formulario = () => {
                   <input
                     type="radio"
                     id="comparison_similar"
-                    name="user_comparison_with_other_brand"
                     className="contact__form-radio-input"
                     onChange={() => setComparacionConOtraMarca('Muy Similar')}
                     checked={comparacionConOtraMarca === 'Muy Similar'}
@@ -720,7 +722,6 @@ const Formulario = () => {
                   <input
                     type="radio"
                     id="comparison_inferior"
-                    name="user_comparison_with_other_brand"
                     className="contact__form-radio-input"
                     onChange={() =>
                       setComparacionConOtraMarca('Inferior Calidad')
@@ -732,6 +733,15 @@ const Formulario = () => {
                   </label>
                 </div>
               </div>
+              <input
+                type="hidden"
+                name="user_comparison_with_other_brand"
+                value={comparacionConOtraMarca}
+              />
+              {console.log(
+                'comparacion con otra marca',
+                comparacionConOtraMarca
+              )}
             </div>
             <div className="col-span-6 md:col-span-3 text-left border border-gray-200 p-2">
               <p className="my-2 py-2">
@@ -997,10 +1007,9 @@ const Formulario = () => {
                   <input
                     type="radio"
                     id="user_used_wp_yes"
-                    name="user_used_wp"
                     className="contact__form-radio-input"
-                    onChange={() => setHaUtilizadoWp(true)}
-                    checked={haUtilizadoWp === true}
+                    onChange={() => setHaUtilizadoWp('Sí')}
+                    checked={haUtilizadoWp === 'Sí'}
                   />
                   <label htmlFor="user_used_wp_yes" className="ml-2">
                     Sí
@@ -1010,14 +1019,19 @@ const Formulario = () => {
                   <input
                     type="radio"
                     id="user_used_wp_no"
-                    name="user_used_wp"
                     className="contact__form-radio-input"
-                    onChange={() => setHaUtilizadoWp(false)}
-                    checked={haUtilizadoWp === false}
+                    onChange={() => setHaUtilizadoWp('No')}
+                    checked={haUtilizadoWp === 'No'}
                   />
                   <label htmlFor="user_used_wp_no" className="ml-2">
                     No
                   </label>
+                  <input
+                    type="hidden"
+                    name="user_used_wp"
+                    value={haUtilizadoWp}
+                  />
+                  {console.log('ha utilizado wp', haUtilizadoWp)}
                 </div>
               </div>
             </div>
@@ -1062,7 +1076,6 @@ const Formulario = () => {
                   <input
                     type="checkbox"
                     id="user_unit_without_inconvenience"
-                    name="user_unit_without_inconvenience"
                     className="contact__form-radio-input"
                     onChange={() =>
                       setUnidadSinInconvenientes(!unidadSinInconvenientes)
@@ -1075,12 +1088,20 @@ const Formulario = () => {
                   >
                     La unidad de agua nunca ha presentado inconvenientes
                   </label>
+                  <input
+                    type="hidden"
+                    name="user_unit_without_inconvenience"
+                    value={unidadSinInconvenientes}
+                  />
+                  {console.log(
+                    'unidad sin inconvenientes',
+                    unidadSinInconvenientes
+                  )}
                 </div>
                 <div className="flex items-center">
                   <input
                     type="checkbox"
                     id="user_no_need"
-                    name="user_no_need"
                     className="contact__form-radio-input"
                     onChange={() => setNoHabiaNecesidad(!noHabiaNecesidad)}
                     checked={noHabiaNecesidad === true}
@@ -1088,12 +1109,17 @@ const Formulario = () => {
                   <label htmlFor="user_no_need" className="ml-2">
                     No he tenido necesidad de contactarles
                   </label>
+                  <input
+                    type="hidden"
+                    name="user_no_need"
+                    value={noHabiaNecesidad}
+                  />
+                  {console.log('no habia necesidad', noHabiaNecesidad)}
                 </div>
                 <div className="flex items-center">
                   <input
                     type="checkbox"
                     id="user_resolved_alone"
-                    name="user_resolved_alone"
                     className="contact__form-radio-input"
                     onChange={() => setResolvioSolo(!resolvioSolo)}
                     checked={resolvioSolo === true}
@@ -1101,12 +1127,17 @@ const Formulario = () => {
                   <label htmlFor="user_resolved_alone" className="ml-2">
                     He resuelto directamente la situación
                   </label>
+                  <input
+                    type="hidden"
+                    name="user_resolved_alone"
+                    value={resolvioSolo}
+                  />
+                  {console.log('resolvio solo', resolvioSolo)}
                 </div>
                 <div className="flex items-center">
                   <input
                     type="checkbox"
                     id="user_does_not_like"
-                    name="user_does_not_like"
                     className="contact__form-radio-input"
                     onChange={() => setNoLeGusta(!noLeGusta)}
                     checked={noLeGusta === true}
@@ -1114,12 +1145,17 @@ const Formulario = () => {
                   <label htmlFor="user_does_not_like" className="ml-2">
                     No me gusta ese medio de atención
                   </label>
+                  <input
+                    type="hidden"
+                    name="user_does_not_like"
+                    value={noLeGusta}
+                  />
+                  {console.log('no le gusta', noLeGusta)}
                 </div>
                 <div className="flex items-center">
                   <input
                     type="checkbox"
                     id="user_uses_annar_sat"
-                    name="user_uses_annar_sat"
                     className="contact__form-radio-input"
                     onChange={() => setUsaSATAnnar(!usaSATAnnar)}
                     checked={usaSATAnnar === true}
@@ -1128,6 +1164,12 @@ const Formulario = () => {
                     Siempre he utilizado el servicio técnico de Annar
                     Diagnóstica
                   </label>
+                  <input
+                    type="hidden"
+                    name="user_uses_annar_sat"
+                    value={usaSATAnnar}
+                  />
+                  {console.log('usa sat annar', usaSATAnnar)}
                 </div>
               </div>
             </div>
@@ -1310,10 +1352,9 @@ const Formulario = () => {
                       <input
                         type="radio"
                         id="user_agree_with_video_yes"
-                        name="user_agree_with_video"
                         className="contact__form-radio-input"
-                        onChange={() => setDeAcuerdoConVideo(true)}
-                        checked={deAcuerdoConVideo === true}
+                        onChange={() => setDeAcuerdoConVideo('Sí')}
+                        checked={deAcuerdoConVideo === 'Sí'}
                       />
                       <label
                         htmlFor="user_agree_with_video_yes"
@@ -1326,10 +1367,9 @@ const Formulario = () => {
                       <input
                         type="radio"
                         id="user_agree_with_video_no"
-                        name="user_agree_with_video"
                         className="contact__form-radio-input"
-                        onChange={() => setDeAcuerdoConVideo(false)}
-                        checked={deAcuerdoConVideo === false}
+                        onChange={() => setDeAcuerdoConVideo('No')}
+                        checked={deAcuerdoConVideo === 'No'}
                       />
                       <label
                         htmlFor="user_agree_with_video_no"
@@ -1339,6 +1379,11 @@ const Formulario = () => {
                       </label>
                     </div>
                   </div>
+                  <input
+                    type="hidden"
+                    name="user_agree_with_video"
+                    value={deAcuerdoConVideo}
+                  />
                 </div>
                 <div className="flex justify-between items-center space-x-4 mt-4">
                   <label htmlFor="user_agree_with_photo" className="ml-2">
@@ -1350,10 +1395,9 @@ const Formulario = () => {
                       <input
                         type="radio"
                         id="user_agree_with_photo_yes"
-                        name="user_agree_with_photo"
                         className="contact__form-radio-input"
-                        onChange={() => setDeAcuerdoConFotos(true)}
-                        checked={deAcuerdoConFotos === true}
+                        onChange={() => setDeAcuerdoConFotos('Sí')}
+                        checked={deAcuerdoConFotos === 'Sí'}
                       />
                       <label
                         htmlFor="user_agree_with_photo_yes"
@@ -1366,10 +1410,9 @@ const Formulario = () => {
                       <input
                         type="radio"
                         id="user_agree_with_photo_no"
-                        name="user_agree_with_photo"
                         className="contact__form-radio-input"
-                        onChange={() => setDeAcuerdoConFotos(false)}
-                        checked={deAcuerdoConFotos === false}
+                        onChange={() => setDeAcuerdoConFotos('No')}
+                        checked={deAcuerdoConFotos === 'No'}
                       />
                       <label
                         htmlFor="user_agree_with_photo_no"
@@ -1379,6 +1422,11 @@ const Formulario = () => {
                       </label>
                     </div>
                   </div>
+                  <input
+                    type="hidden"
+                    name="user_agree_with_photo"
+                    value={deAcuerdoConFotos}
+                  />
                 </div>
                 <div className="flex justify-between items-center space-x-4 mt-4">
                   <label htmlFor="user_agree_with_support" className="ml-2">
@@ -1391,10 +1439,9 @@ const Formulario = () => {
                       <input
                         type="radio"
                         id="user_agree_with_support_yes"
-                        name="user_agree_with_support"
                         className="contact__form-radio-input"
-                        onChange={() => setDeAcuerdoConBrindarApoyo(true)}
-                        checked={deAcuerdoConBrindarApoyo === true}
+                        onChange={() => setDeAcuerdoConBrindarApoyo('Sí')}
+                        checked={deAcuerdoConBrindarApoyo === 'Sí'}
                       />
                       <label
                         htmlFor="user_agree_with_support_yes"
@@ -1407,10 +1454,9 @@ const Formulario = () => {
                       <input
                         type="radio"
                         id="user_agree_with_support_no"
-                        name="user_agree_with_support"
                         className="contact__form-radio-input"
-                        onChange={() => setDeAcuerdoConBrindarApoyo(false)}
-                        checked={deAcuerdoConBrindarApoyo === false}
+                        onChange={() => setDeAcuerdoConBrindarApoyo('No')}
+                        checked={deAcuerdoConBrindarApoyo === 'No'}
                       />
                       <label
                         htmlFor="user_agree_with_support_no"
@@ -1420,6 +1466,11 @@ const Formulario = () => {
                       </label>
                     </div>
                   </div>
+                  <input
+                    type="hidden"
+                    name="user_agree_with_support"
+                    value={deAcuerdoConBrindarApoyo}
+                  />
                 </div>
                 <div className="flex justify-between items-center space-x-4 mt-4">
                   <label htmlFor="user_agree_with_monitoring" className="ml-2">
@@ -1431,10 +1482,9 @@ const Formulario = () => {
                       <input
                         type="radio"
                         id="user_agree_with_monitoring_yes"
-                        name="user_agree_with_monitoring"
                         className="contact__form-radio-input"
-                        onChange={() => setDeAcuerdoConMonitoreo(true)}
-                        checked={deAcuerdoConMonitoreo === true}
+                        onChange={() => setDeAcuerdoConMonitoreo('Sí')}
+                        checked={deAcuerdoConMonitoreo === 'Sí'}
                       />
                       <label
                         htmlFor="user_agree_with_monitoring_yes"
@@ -1447,10 +1497,9 @@ const Formulario = () => {
                       <input
                         type="radio"
                         id="user_agree_with_monitoring_no"
-                        name="user_agree_with_monitoring"
                         className="contact__form-radio-input"
-                        onChange={() => setDeAcuerdoConMonitoreo(false)}
-                        checked={deAcuerdoConMonitoreo === false}
+                        onChange={() => setDeAcuerdoConMonitoreo('No')}
+                        checked={deAcuerdoConMonitoreo === 'No'}
                       />
                       <label
                         htmlFor="user_agree_with_monitoring_no"
@@ -1460,6 +1509,11 @@ const Formulario = () => {
                       </label>
                     </div>
                   </div>
+                  <input
+                    type="hidden"
+                    name="user_agree_with_monitoring"
+                    value={deAcuerdoConMonitoreo}
+                  />
                 </div>
               </div>
             </div>
@@ -1475,10 +1529,9 @@ const Formulario = () => {
                   <input
                     type="radio"
                     id="user_wp_helps_agilize_yes"
-                    name="user_wp_helps_agilize"
                     className="contact__form-radio-input"
-                    onChange={() => setWpAyudaAAgilizar(true)}
-                    checked={wpAyudaAAgilizar === true}
+                    onChange={() => setWpAyudaAAgilizar('Sí')}
+                    checked={wpAyudaAAgilizar === 'Sí'}
                   />
                   <label htmlFor="user_wp_helps_agilize_yes" className="ml-2">
                     Sí
@@ -1488,16 +1541,20 @@ const Formulario = () => {
                   <input
                     type="radio"
                     id="user_wp_helps_agilize_no"
-                    name="user_wp_helps_agilize"
                     className="contact__form-radio-input"
-                    onChange={() => setWpAyudaAAgilizar(false)}
-                    checked={wpAyudaAAgilizar === false}
+                    onChange={() => setWpAyudaAAgilizar('No')}
+                    checked={wpAyudaAAgilizar === 'No'}
                   />
                   <label htmlFor="user_wp_helps_agilize_no" className="ml-2">
                     No
                   </label>
                 </div>
               </div>
+              <input
+                type="hidden"
+                name="user_wp_helps_agilize"
+                value={wpAyudaAAgilizar}
+              />
             </div>
             <div className="col-span-6 md:col-span-3 text-left border border-gray-200 p-2">
               <p className="my-2 py-2 text-lg">
@@ -1510,10 +1567,9 @@ const Formulario = () => {
                   <input
                     type="radio"
                     id="user_wp_replacement_yes"
-                    name="user_wp_replacement"
                     className="contact__form-radio-input"
-                    onChange={() => setWpReemplazable(true)}
-                    checked={wpReemplazable === true}
+                    onChange={() => setWpReemplazable('Sí')}
+                    checked={wpReemplazable === 'Sí'}
                   />
                   <label htmlFor="user_wp_replacement_yes" className="ml-2">
                     Sí
@@ -1523,15 +1579,19 @@ const Formulario = () => {
                   <input
                     type="radio"
                     id="user_wp_replacement_no"
-                    name="user_wp_replacement"
                     className="contact__form-radio-input"
-                    onChange={() => setWpReemplazable(false)}
-                    checked={wpReemplazable === false}
+                    onChange={() => setWpReemplazable('No')}
+                    checked={wpReemplazable === 'No'}
                   />
                   <label htmlFor="user_wp_replacement_no" className="ml-2">
                     No
                   </label>
                 </div>
+                <input
+                  type="hidden"
+                  name="user_wp_replacement"
+                  value={wpReemplazable}
+                />
               </div>
               <p className="mt-2">
                 En caso afirmativo, por favor haga su recomendación al respecto:
@@ -1573,10 +1633,9 @@ const Formulario = () => {
                       <input
                         type="radio"
                         id="user_knew_moraequipos_yes"
-                        name="user_knew_moraequipos"
                         className="contact__form-radio-input"
-                        onChange={() => setConociaMoraequipos(true)}
-                        checked={conociaMoraequipos === true}
+                        onChange={() => setConociaMoraequipos('Sí')}
+                        checked={conociaMoraequipos === 'Sí'}
                       />
                       <label
                         htmlFor="user_knew_moraequipos_yes"
@@ -1589,10 +1648,9 @@ const Formulario = () => {
                       <input
                         type="radio"
                         id="user_knew_moraequipos_no"
-                        name="user_knew_moraequipos"
                         className="contact__form-radio-input"
-                        onChange={() => setConociaMoraequipos(false)}
-                        checked={conociaMoraequipos === false}
+                        onChange={() => setConociaMoraequipos('No')}
+                        checked={conociaMoraequipos === 'No'}
                       />
                       <label
                         htmlFor="user_knew_moraequipos_no"
@@ -1602,6 +1660,11 @@ const Formulario = () => {
                       </label>
                     </div>
                   </div>
+                  <input
+                    type="hidden"
+                    name="user_knew_moraequipos"
+                    value={conociaMoraequipos}
+                  />
                 </div>
                 <div className="flex justify-between items-center space-x-4 mt-2">
                   <label htmlFor="user_moraequipos_is_serious" className="ml-2">
@@ -1613,10 +1676,9 @@ const Formulario = () => {
                       <input
                         type="radio"
                         id="user_moraequipos_is_serious_yes"
-                        name="user_moraequipos_is_serious"
                         className="contact__form-radio-input"
-                        onChange={() => setMoraequiposEsSerio(true)}
-                        checked={moraequiposEsSerio === true}
+                        onChange={() => setMoraequiposEsSerio('Sí')}
+                        checked={moraequiposEsSerio === 'Sí'}
                       />
                       <label
                         htmlFor="user_moraequipos_is_serious_yes"
@@ -1629,10 +1691,9 @@ const Formulario = () => {
                       <input
                         type="radio"
                         id="user_moraequipos_is_serious_no"
-                        name="user_moraequipos_is_serious"
                         className="contact__form-radio-input"
-                        onChange={() => setMoraequiposEsSerio(false)}
-                        checked={moraequiposEsSerio === false}
+                        onChange={() => setMoraequiposEsSerio('No')}
+                        checked={moraequiposEsSerio === 'No'}
                       />
                       <label
                         htmlFor="user_moraequipos_is_serious_no"
@@ -1641,6 +1702,11 @@ const Formulario = () => {
                         No
                       </label>
                     </div>
+                    <input
+                      type="hidden"
+                      name="user_moraequipos_is_serious"
+                      value={moraequiposEsSerio}
+                    />
                   </div>
                 </div>
                 <div className="flex justify-between items-center space-x-4 mt-2">
@@ -1656,10 +1722,9 @@ const Formulario = () => {
                       <input
                         type="radio"
                         id="user_moraequipos_gives_confidence_yes"
-                        name="user_moraequipos_gives_confidence"
                         className="contact__form-radio-input"
-                        onChange={() => setMoraequiposDaConfianza(true)}
-                        checked={moraequiposDaConfianza === true}
+                        onChange={() => setMoraequiposDaConfianza('Sí')}
+                        checked={moraequiposDaConfianza === 'Sí'}
                       />
                       <label
                         htmlFor="user_moraequipos_gives_confidence_yes"
@@ -1672,10 +1737,9 @@ const Formulario = () => {
                       <input
                         type="radio"
                         id="user_moraequipos_gives_confidence_no"
-                        name="user_moraequipos_gives_confidence"
                         className="contact__form-radio-input"
-                        onChange={() => setMoraequiposDaConfianza(false)}
-                        checked={moraequiposDaConfianza === false}
+                        onChange={() => setMoraequiposDaConfianza('No')}
+                        checked={moraequiposDaConfianza === 'No'}
                       />
                       <label
                         htmlFor="user_moraequipos_gives_confidence_no"
@@ -1684,6 +1748,11 @@ const Formulario = () => {
                         No
                       </label>
                     </div>
+                    <input
+                      type="hidden"
+                      name="user_moraequipos_gives_confidence"
+                      value={moraequiposDaConfianza}
+                    />
                   </div>
                 </div>
                 <div className="flex justify-between items-center space-x-4 mt-2">
@@ -1700,10 +1769,9 @@ const Formulario = () => {
                       <input
                         type="radio"
                         id="user_moraequipos_fulfills_as_provider_yes"
-                        name="user_moraequipos_fulfills_as_provider"
                         className="contact__form-radio-input"
-                        onChange={() => setMorequiposCumpleComoProveedor(true)}
-                        checked={morequiposCumpleComoProveedor === true}
+                        onChange={() => setMorequiposCumpleComoProveedor('Sí')}
+                        checked={morequiposCumpleComoProveedor === 'Sí'}
                       />
                       <label
                         htmlFor="user_moraequipos_fulfills_as_provider_yes"
@@ -1716,10 +1784,9 @@ const Formulario = () => {
                       <input
                         type="radio"
                         id="user_moraequipos_fulfills_as_provider_no"
-                        name="user_moraequipos_fulfills_as_provider"
                         className="contact__form-radio-input"
-                        onChange={() => setMorequiposCumpleComoProveedor(false)}
-                        checked={morequiposCumpleComoProveedor === false}
+                        onChange={() => setMorequiposCumpleComoProveedor('No')}
+                        checked={morequiposCumpleComoProveedor === 'No'}
                       />
                       <label
                         htmlFor="user_moraequipos_fulfills_as_provider_no"
@@ -1728,6 +1795,11 @@ const Formulario = () => {
                         No
                       </label>
                     </div>
+                    <input
+                      type="hidden"
+                      name="user_moraequipos_fulfills_as_provider"
+                      value={morequiposCumpleComoProveedor}
+                    />
                   </div>
                 </div>
                 <div className="flex justify-between items-center space-x-4 mt-2">
@@ -1744,10 +1816,9 @@ const Formulario = () => {
                       <input
                         type="radio"
                         id="user_knew_moraequipos_in_colombia_yes"
-                        name="user_knew_moraequipos_in_colombia"
                         className="contact__form-radio-input"
-                        onChange={() => setSabiaEquiposEnTodoColombia(true)}
-                        checked={sabiaEquiposEnTodoColombia === true}
+                        onChange={() => setSabiaEquiposEnTodoColombia('Sí')}
+                        checked={sabiaEquiposEnTodoColombia === 'Sí'}
                       />
                       <label
                         htmlFor="user_knew_moraequipos_in_colombia_yes"
@@ -1760,10 +1831,9 @@ const Formulario = () => {
                       <input
                         type="radio"
                         id="user_knew_moraequipos_in_colombia_no"
-                        name="user_knew_moraequipos_in_colombia"
                         className="contact__form-radio-input"
-                        onChange={() => setSabiaEquiposEnTodoColombia(false)}
-                        checked={sabiaEquiposEnTodoColombia === false}
+                        onChange={() => setSabiaEquiposEnTodoColombia('No')}
+                        checked={sabiaEquiposEnTodoColombia === 'No'}
                       />
                       <label
                         htmlFor="user_knew_moraequipos_in_colombia_no"
@@ -1772,6 +1842,11 @@ const Formulario = () => {
                         No
                       </label>
                     </div>
+                    <input
+                      type="hidden"
+                      name="user_knew_moraequipos_in_colombia"
+                      value={sabiaEquiposEnTodoColombia}
+                    />
                   </div>
                 </div>
               </div>
@@ -1994,7 +2069,6 @@ const Formulario = () => {
                   <input
                     type="radio"
                     id="user_contact_method_email"
-                    name="user_contact_method"
                     className="contact__form-radio-input"
                     onChange={() => setMedioDeContacto('Email')}
                     checked={medioDeContacto === 'Email'}
@@ -2007,7 +2081,6 @@ const Formulario = () => {
                   <input
                     type="radio"
                     id="user_contact_method_whatsapp"
-                    name="user_contact_method"
                     className="contact__form-radio-input"
                     onChange={() => setMedioDeContacto('WhatsApp')}
                     checked={medioDeContacto === 'WhatsApp'}
@@ -2023,7 +2096,6 @@ const Formulario = () => {
                   <input
                     type="radio"
                     id="user_contact_method_call"
-                    name="user_contact_method"
                     className="contact__form-radio-input"
                     onChange={() => setMedioDeContacto('Llamada')}
                     checked={medioDeContacto === 'Llamada'}
@@ -2033,6 +2105,11 @@ const Formulario = () => {
                   </label>
                 </div>
               </div>
+              <input
+                type="hidden"
+                name="user_contact_method"
+                value={medioDeContacto}
+              />
             </div>
           </div>
         </div>
