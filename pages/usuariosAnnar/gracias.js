@@ -7,7 +7,7 @@ import Link from 'next/link';
 const ThankYouPage = () => {
   useEffect(() => {
     const incrementPageView = async () => {
-      await axios.post('/api/views/gracias');
+      await axios.post('/api/usuariosAnnar/views/gracias');
     };
     incrementPageView();
   }, []);

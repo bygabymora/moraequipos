@@ -13,7 +13,7 @@ export default function UsuariosAnnar() {
 
   useEffect(() => {
     const incrementPageView = async () => {
-      await axios.post('/api/views/formulario');
+      await axios.post('/api/usuariosAnnar/views/principal');
     };
     incrementPageView();
   }, []);

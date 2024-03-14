@@ -7,7 +7,7 @@ import axios from 'axios';
 export default function FormularioPage() {
   useEffect(() => {
     const incrementPageView = async () => {
-      await axios.post('/api/views/formulario');
+      await axios.post('/api/usuariosAnnar/views/formulario');
     };
     incrementPageView();
   }, []);
