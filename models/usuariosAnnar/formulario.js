@@ -66,7 +66,7 @@ const formularioAnnarSchema = new mongoose.Schema(
     nombre: { type: String, required: false },
     cargo: { type: String, required: false },
     celular: { type: String, required: false },
-    email: { type: String, required: false, unique: true },
+    email: { type: String, required: false },
     medioDeContacto: { type: String, required: false },
     numerorifa: { type: String, required: false },
   },

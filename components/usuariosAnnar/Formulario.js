@@ -35,14 +35,14 @@ const Formulario = () => {
   const [haUtilizadoWp, setHaUtilizadoWp] = useState('');
   const [queLeHaGustado, setQueLeHaGustado] = useState('');
   const [recomendacionWp, setRecomendacionWp] = useState('');
-  const [unidadSinInconvenientes, setUnidadSinInconvenientes] = useState('');
-  const [noHabiaNecesidad, setNoHabiaNecesidad] = useState('');
-  const [resolvioSolo, setResolvioSolo] = useState('');
-  const [noLeGusta, setNoLeGusta] = useState('');
-  const [usaSATAnnar, setUsaSATAnnar] = useState('');
+  const [unidadSinInconvenientes, setUnidadSinInconvenientes] = useState(false);
+  const [noHabiaNecesidad, setNoHabiaNecesidad] = useState(false);
+  const [resolvioSolo, setResolvioSolo] = useState(false);
+  const [noLeGusta, setNoLeGusta] = useState(false);
+  const [usaSATAnnar, setUsaSATAnnar] = useState(false);
   const [tiempoDeRespuestaWp, setTiempoDeRespuestaWp] = useState('');
   const [amabilidadWp, setAmabilidadWp] = useState('');
-  const [empatiaWp, setEmpatiaWp] = useState('');
+
   const [conocimientoWp, setConocimientoWp] = useState('');
   const [asesoriaWp, setAsesoriaWp] = useState('');
   const [solucionWp, setSolucionWp] = useState('');
@@ -117,7 +117,7 @@ const Formulario = () => {
         usaSATAnnar,
         tiempoDeRespuestaWp,
         amabilidadWp,
-        empatiaWp,
+
         conocimientoWp,
         asesoriaWp,
         solucionWp,
@@ -153,77 +153,11 @@ const Formulario = () => {
         medioDeContacto,
         numeroRifa,
       });
-      sendEmail;
+
+      sendEmail();
 
       form.current.reset();
       toast.success('Formulario enviado con éxito');
-      setModelo('');
-      setSerial('');
-      setDiseño('');
-      setTamaño('');
-      setFacilidadDeUso('');
-      setCalidadDeAgua('');
-      setColor('');
-      setNivelDeRuido('');
-      setAgregariaAlgo('');
-      setSuprimiriaAlgo('');
-      setConosOtraMarca('');
-      setComparacionConOtraMarca('');
-      setSiMejorQue('');
-      setSiMenorQue('');
-      setPresentacionPersonalSAT('');
-      setAmabilidadSAT('');
-      setConocimientoSAT('');
-      setAsesoriaSAT('');
-      setTiempoSAT('');
-      setObservacionATecnicoNombre('');
-      setObservacionATecnico('');
-      setRecomendacionSAT('');
-      setHaUtilizadoWp('');
-      setQueLeHaGustado('');
-      setRecomendacionWp('');
-      setUnidadSinInconvenientes('');
-      setNoHabiaNecesidad('');
-      setResolvioSolo('');
-      setNoLeGusta('');
-      setUsaSATAnnar('');
-      setTiempoDeRespuestaWp('');
-      setAmabilidadWp('');
-      setEmpatiaWp('');
-      setConocimientoWp('');
-      setAsesoriaWp('');
-      setSolucionWp('');
-      setDisponibilidadWp('');
-      setDeAcuerdoConVideo('');
-      setDeAcuerdoConFotos('');
-      setDeAcuerdoConBrindarApoyo('');
-      setDeAcuerdoConMonitoreo('');
-      setWpAyudaAAgilizar('');
-      setWpReemplazable('');
-      setSiReemplazableQue('');
-      setConociaMoraequipos('');
-      setMoraequiposEsSerio('');
-      setMorequiposCumpleComoProveedor('');
-      setMoraequiposDaConfianza('');
-      setSabiaEquiposEnTodoColombia('');
-      setTiempoRespuestaMq('');
-      setEquipoDisponibleMq('');
-      setDiseñoUnidadesMq('');
-      setCalidadUnidadesMq('');
-      setUbicacionMq('');
-      setAtencionNivelNacionalMq('');
-      setInfraestructuraMq('');
-      setOpcionNegociaciónQuedarse('');
-      setRazonSocial('');
-      setDireccion('');
-      setCiudad('');
-      setTelefono('');
-      setNombre('');
-      setCargo('');
-      setCelular('');
-      setEmail('');
-      setMedioDeContacto('');
-
       setTimeout(() => {
         router.push('/usuariosAnnar/gracias');
       }, 2000);
@@ -274,7 +208,7 @@ const Formulario = () => {
     formData.append('user_uses_annar_sat', usaSATAnnar);
     formData.append('user_wp_response_time', tiempoDeRespuestaWp);
     formData.append('user_wp_kindness', amabilidadWp);
-    formData.append('user_wp_empathy', empatiaWp);
+
     formData.append('user_wp_knowledge', conocimientoWp);
     formData.append('user_wp_advice', asesoriaWp);
     formData.append('user_wp_solution', solucionWp);
@@ -519,7 +453,7 @@ const Formulario = () => {
                   </label>
                   <input
                     type="text"
-                    name="modelo"
+                    name="user_model"
                     className="contact__form-input"
                     onChange={(e) => setModelo(e.target.value)}
                     value={modelo}
@@ -531,7 +465,7 @@ const Formulario = () => {
                   </label>
                   <input
                     type="text"
-                    name="serial"
+                    name="user_serial"
                     className="contact__form-input"
                     onChange={(e) => setSerial(e.target.value)}
                     value={serial}
@@ -724,7 +658,7 @@ const Formulario = () => {
                 <div className="flex items-center">
                   <input
                     type="radio"
-                    id="user_knows_other_brand_yes"
+                    id="user_knows_other_brand"
                     name="user_knows_other_brand"
                     className="contact__form-radio-input"
                     onChange={() => setConosOtraMarca(true)}
