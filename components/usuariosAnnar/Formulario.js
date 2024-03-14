@@ -1580,6 +1580,7 @@ const Formulario = () => {
                   value={wpReemplazable}
                 />
               </div>
+              {console.log('wpReemplazable', wpReemplazable)}
               <p className="mt-2">
                 En caso afirmativo, por favor haga su recomendación al respecto:
               </p>
