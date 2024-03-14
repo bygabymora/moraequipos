@@ -4,10 +4,19 @@ import RootLayout from '../../components/layout';
 import Link from 'next/link';
 import VideoContainer from '../../components/usuariosAnnar/VideoContainer';
 import Image from 'next/image';
+import { useEffect } from 'react';
+import axios from 'axios';
 
 export default function UsuariosAnnar() {
   const [showButton, setShowButton] = useState(false);
   const [showButton2, setShowButton2] = useState(false);
+
+  useEffect(() => {
+    const incrementPageView = async () => {
+      await axios.post('/api/views/formulario');
+    };
+    incrementPageView();
+  }, []);
 
   return (
     <RootLayout title="moraequipos">

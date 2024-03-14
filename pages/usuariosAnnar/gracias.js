@@ -1,9 +1,16 @@
 import React from 'react';
 import Image from 'next/image';
-
+import { useEffect } from 'react';
+import axios from 'axios';
 import Link from 'next/link';
 
 const ThankYouPage = () => {
+  useEffect(() => {
+    const incrementPageView = async () => {
+      await axios.post('/api/views/gracias');
+    };
+    incrementPageView();
+  }, []);
   return (
     <div className="flex flex-col items-center justify-center h-screen bg-gray-50 p-4">
       <div className="text-center items-center max-w-[1700px] mt-[20rem]  p-10 flex flex-col md:gap-10 gap-5">
