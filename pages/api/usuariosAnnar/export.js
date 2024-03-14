@@ -13,6 +13,7 @@ const exportData = async (req, res) => {
       const worksheet = workbook.addWorksheet('Data');
 
       worksheet.columns = [
+        { header: 'Numero Rifa', key: 'numeroRifa', width: 15 },
         { header: 'Razón Social', key: 'razonSocial', width: 20 },
         { header: 'Dirección', key: 'direccion', width: 20 },
         { header: 'Ciudad', key: 'ciudad', width: 15 },
