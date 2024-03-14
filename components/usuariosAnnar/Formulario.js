@@ -431,7 +431,7 @@ const Formulario = () => {
                 type="email"
                 name="user_email"
                 className="contact__form-input"
-                onChange={handleEmailChange}
+                onChange={(e) => setEmail(e.target.value)}
                 value={email}
                 required
               />
